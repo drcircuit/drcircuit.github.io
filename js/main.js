@@ -123,7 +123,7 @@ function sortMenu(list) {
         menu[parts[2]].push({
             page: i.replace("/pages", "/#").replace(".md", ""),
             menuEntry: parts[2],
-            text: parts[3].ucFirst().replace(".md", "")
+            text: parts[3].ucFirst().replace(".md", "").replace("/\d\d-","")
         });
     });
     return menu;
