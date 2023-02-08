@@ -1,0 +1,13 @@
+pre {
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px 15px rgba(0,0,0,.13);
+}
+
+body{
+    background-color:dimgray !important;
+    color: white !important;
+}
+
+.img-thumbnail{
+    margin-right:1em;
+}
