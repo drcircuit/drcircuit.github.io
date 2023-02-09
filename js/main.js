@@ -1,4 +1,4 @@
-const content = document.getElementById('content');
+const content = document.getElementById('page');
 let addressMap = {};
 marked.setOptions({
     renderer: new marked.Renderer(),
@@ -20,7 +20,9 @@ marked.use({ renderer: { image: imageRenderer } });
 
 
 function loadPage(page) {
-    fetch(`/pages${page}.md`)
+    let url = page.includes("/posts") ? `${page}` : `/pages${page}.md`;
+
+    fetch(url)
         .then((d) => d.text())
         .then((md) => {
             content.innerHTML = "";
@@ -50,15 +52,69 @@ function parsePage(address) {
     return "";
 }
 
-function mapPosts(posts){
+function getTitle(parts) {
+    let title = "";
+    for (let i = 1; i < parts.length; i++) {
+        title = `${title} ${parts[i].ucFirst()}`;
+    }
+    return title;
+}
+function mapPosts(posts) {
     let blog = document.getElementById("blog");
-    posts.forEach(p=>{
-        let parst = p.split("-");
-        let el = el("div");
-        el.classList.add("card");
-        el.style.width = "18rem";
-        let img = el("img");
-        img.src = "";
+    posts.forEach(p => {
+        let dd = new Date();
+        try{
+            dd = new Date(Number(p.split("#")[1])*1000);
+        } catch(e){
+            console.log(e);
+        }
+        let pp = p.replace("/posts/", "").split(".");
+        let parts = pp[0].split("-");
+        let slug = `/posts/${parts.join("-")}`;
+        addressMap[slug] = p;
+        let title = getTitle(parts);
+        fetch(p)
+            .then((r) => r.text())
+            .then((txt) => {
+                let { start, stop } = txt.getIndices("_");
+                let ingress = txt.substring(start+1, stop);
+                let div = el("div");
+                div.classList.add("card");
+                div.style.width = "18rem";
+                let img = el("img");
+                img.src = `/images/${parts[0]}.png`;
+                img.className = "card-img-top";
+                img.alt = parts[0];
+                div.appendChild(img);
+                let body = el("div");
+                body.className = "card-body";
+                let h5 = el("h5");
+                h5.innerText = title;
+                let badge = el("span");
+                badge.classList.add("badge", "rounded-pill", "bg-dark");
+                badge.innerText = parts[0].ucFirst();
+                let dat = el("span");
+                dat.className = "card-date";
+                dat.innerText = `${dd.toDateString()} ${dd.toTimeString()}`;
+
+                body.appendChild(h5);
+                body.appendChild(badge);
+                body.appendChild(dat);
+                let p = el("p");
+                p.className = "card-text";
+                p.innerText = ingress;
+                body.appendChild(p);
+                let a = el("a");
+                a.classList.add("btn", "btn-primary");
+                a.innerText = "Check Out";
+                a.href = `#${slug}`;
+                body.appendChild(a);
+                div.appendChild(body);
+                blog.appendChild(div);
+            })
+            .catch(e => console.error);
+
+
     });
 }
 function loadBlog(cb) {
@@ -73,14 +129,14 @@ function loadBlog(cb) {
 }
 
 function handlePage(page) {
+
     if (page !== "" && page) {
         loadPage(page);
         setBlogDisplay(false);
     } else {
-        loadBlog(() => {
-            setBlogDisplay(true);
-        });
+        setBlogDisplay(true);
     }
+
 }
 
 function el(tag) {
@@ -89,6 +145,20 @@ function el(tag) {
 
 String.prototype.ucFirst = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
+String.prototype.getIndices = function (char) {
+    let start = -1;
+    let stop = -1;
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] === char && start < 0) {
+            start = i;
+        } else if (this[i] === char && start > -1 && stop < 0) {
+            stop = i;
+            break;
+        }
+    }
+    return { start: start, stop: stop };
 }
 
 function mapMenu(pagelist) {
@@ -169,7 +239,10 @@ function loadMenu(cb) {
 }
 function load() {
     loadMenu(() => {
-        handlePage(parsePage(window.location.href));
+        loadBlog(() => {
+
+            handlePage(parsePage(window.location.href));
+        });
     });
 }
 window.addEventListener("load", (e) => {

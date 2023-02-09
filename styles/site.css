@@ -1,13 +1,95 @@
+@font-face {
+    font-family: "perfect-dos";
+    src: url("/fonts/dos.ttf");
+}
 pre {
     border-radius: 10px;
-    box-shadow: 2px 2px 15px 15px rgba(0,0,0,.13);
+    box-shadow: 2px 2px 15px 15px rgba(0, 0, 0, .13);
 }
 
-body{
-    background-color:dimgray !important;
+body {
+    background-color: dimgray !important;
     color: white !important;
 }
 
-.img-thumbnail{
-    margin-right:1em;
+.img-thumbnail {
+    margin-right: 1em;
+}
+
+.card-date {}
+
+.card {
+    color: #666;
+}
+
+.card .btn-primary {
+    background-color: #306 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: #306 !important;
+}
+
+.container{
+    background-color: #ccc;
+    padding-top: 20px;
+    box-shadow: 2px 2px 20px 20px rgba(0, 0, 0, .13);
+    overflow: auto;
+}
+
+.card {
+    box-shadow: 2px 2px 20px 20px rgba(0, 0, 0, .13);
+    display: block;
+    float: left;
+    margin: 10px;
+    height: 600px;
+}
+
+.logo{
+    filter: invert(60%);
+}
+
+.navbar{
+    font-family: "perfect-dos";
+}
+.nav-item{
+    font-size: 16pt !important;
+    font-family: "neuropol-x-light" !important;
+}
+.nav-item a{
+    color: #0eF !important;
+}
+.nav-item a:hover{
+    color: #85c !important;
+}
+
+.navbar-brand{
+    font-size: 22pt !important;
+}
+.container-fluid{
+    justify-content: center;
+}
+
+#content{
+    
+}
+
+.page{
+    width: 80%;
+    color: #222;
+    min-height: 81vh;
+}
+
+footer{
+    background-color: #222;
+    width: 100%;
+    color: rgb(184, 168, 205);
+    align-items: center;
+    padding-top: 3vh;
+    padding-bottom: 1vh;
+    position: relative;
 }
