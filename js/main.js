@@ -1,4 +1,5 @@
 const content = document.getElementById('content');
+let addressMap = {};
 marked.setOptions({
     renderer: new marked.Renderer(),
     highlight: function (code, lang) {
@@ -42,18 +43,43 @@ function setBlogDisplay(visible) {
 
 function parsePage(address) {
     let parts = address.split("#");
+    console.log(parts);
     if (parts.length > 1) {
-        return parts[1];
+        return addressMap[parts[1]];
     }
     return "";
 }
 
+function mapPosts(posts){
+    let blog = document.getElementById("blog");
+    posts.forEach(p=>{
+        let parst = p.split("-");
+        let el = el("div");
+        el.classList.add("card");
+        el.style.width = "18rem";
+        let img = el("img");
+        img.src = 
+    });
+}
+function loadBlog(cb) {
+    fetch("/posts/posts.json")
+        .then(r => r.json())
+        .then(posts => {
+            console.log(posts);
+            mapPosts(posts);
+            cb();
+        })
+        .catch(e => cb(console.error(e)));
+}
+
 function handlePage(page) {
-    if (page !== "") {
+    if (page !== "" && page) {
         loadPage(page);
         setBlogDisplay(false);
     } else {
-        setBlogDisplay(true)
+        loadBlog(() => {
+            setBlogDisplay(true);
+        });
     }
 }
 
@@ -116,33 +142,39 @@ function mapMenu(pagelist) {
 function sortMenu(list) {
     let menu = {};
     list.forEach((i) => {
-        let parts = i.split("/");
+        let parts = i.split("/").filter(p => p !== ".");
         if (!menu[parts[2]]) {
             menu[parts[2]] = [];
         }
+        let friendlyName = parts[3].replace(".md", "").replace(/\d\d-/, "").ucFirst();
+        let link = i.replace("/pages", "/#").replace(".md", "").replace("/.", "");
+        addressMap[`/${friendlyName}`] = link.replace("/#", "");
         menu[parts[2]].push({
-            page: i.replace("/pages", "/#").replace(".md", ""),
+            page: `/#/${friendlyName}`,
             menuEntry: parts[2],
-            text: parts[3].ucFirst().replace(".md", "").replace("/\d\d-","")
+            text: friendlyName
         });
     });
     return menu;
 }
 
-function loadMenu() {
+function loadMenu(cb) {
     fetch("/pages/pages.json")
         .then((d) => d.json())
         .then((p) => {
             mapMenu(sortMenu(p));
+            cb();
         })
-        .catch((e) => console.error(e));
+        .catch((e) => cb(console.error(e)));
 }
-
+function load() {
+    loadMenu(() => {
+        handlePage(parsePage(window.location.href));
+    });
+}
 window.addEventListener("load", (e) => {
-    loadMenu();
-    handlePage(parsePage(window.location.href));
+    load();
 });
 window.addEventListener("popstate", (e) => {
-    loadMenu();
-    handlePage(parsePage(window.location.href));
+    load();
 });
