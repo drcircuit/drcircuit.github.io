@@ -58,7 +58,7 @@ function mapPosts(posts){
         el.classList.add("card");
         el.style.width = "18rem";
         let img = el("img");
-        img.src = ""
+        img.src = "";
     });
 }
 function loadBlog(cb) {
