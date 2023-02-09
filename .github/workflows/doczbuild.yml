@@ -52,11 +52,11 @@ jobs:
         uses: actions/upload-pages-artifact@v1.0.7
         with:
           # Artifact name
-          name: # optional, default is github-pages
+          name: github-pages
           # Path of the directory containing the static assets.
           path: ./static
           # Duration after which artifact will expire in days.
-          retention-days: # optional, default is 1
+          retention-days: 1
 
   # Deployment job
   # deploy:
