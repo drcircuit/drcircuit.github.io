@@ -7,6 +7,7 @@ cp -r js ./static/
 cp -r pages ./static/
 cp -r posts ./static/
 cp -r styles ./static/
+cp -r fonts ./static/
 cp index.html ./static/
 cd ./static/posts
 ./build.sh
