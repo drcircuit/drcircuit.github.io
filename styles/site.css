@@ -91,5 +91,6 @@ footer{
     align-items: center;
     padding-top: 3vh;
     padding-bottom: 1vh;
-    position: relative;
+    position: absolute;
+    bottom: 0vh;
 }
