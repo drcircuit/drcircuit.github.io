@@ -4,7 +4,6 @@ marked.setOptions({
     renderer: new marked.Renderer(),
     highlight: function (code, lang) {
         const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-        console.log(code, language);
         return hljs.highlight(code, { language }).value;
     },
     langPrefix: 'hljs language-', // highlight.js css expects a top-level 'hljs' class.
@@ -17,17 +16,16 @@ marked.setOptions({
 });
 
 marked.use({ renderer: { image: imageRenderer } });
+marked.use({ extensions: [script] });
 
 
-function loadPage(page) {
+function renderPage(page) {
     let url = page.includes("/posts") ? `${page}` : `/pages${page}.md`;
-
     fetch(url)
         .then((d) => d.text())
         .then((md) => {
             content.innerHTML = "";
-            let pel = document.createElement("div");
-            pel.className = "mdPage";
+            let pel = createTag("div", ["mdPage"],"")
             pel.innerHTML = marked.parse(md);
             content.appendChild(pel);
         })
@@ -45,7 +43,6 @@ function setBlogDisplay(visible) {
 
 function parsePage(address) {
     let parts = address.split("#");
-    console.log(parts);
     if (parts.length > 1) {
         return addressMap[parts[1]];
     }
@@ -59,69 +56,66 @@ function getTitle(parts) {
     }
     return title;
 }
+
 function mapPosts(posts) {
     let blog = document.getElementById("blog");
-    posts.forEach(p => {
-        let dd = new Date();
-        try{
-            dd = new Date(Number(p.split("#")[1])*1000);
-        } catch(e){
-            console.log(e);
+    posts.forEach(postFileName => {
+        let postDate = new Date();
+        try {
+            postDate = new Date(Number(postFileName.split("#")[1]) * 1000);
+        } catch (e) {
+            console.error(e);
         }
-        let pp = p.replace("/posts/", "").split(".");
-        let parts = pp[0].split("-");
-        let slug = `/posts/${parts.join("-")}`;
-        addressMap[slug] = p;
-        let title = getTitle(parts);
-        fetch(p)
+        let fileNameParts = getFileNameParts(postFileName);
+        let postLink = getPostLink(fileNameParts, postFileName);
+        let title = getTitle(fileNameParts);
+        fetch(postFileName)
             .then((r) => r.text())
-            .then((txt) => {
-                let { start, stop } = txt.getIndices("_");
-                let ingress = txt.substring(start+1, stop);
-                let div = el("div");
-                div.classList.add("card");
-                div.style.width = "18rem";
-                let img = el("img");
-                img.src = `/images/${parts[0]}.png`;
-                img.className = "card-img-top";
-                img.alt = parts[0];
-                div.appendChild(img);
-                let body = el("div");
-                body.className = "card-body";
-                let h5 = el("h5");
-                h5.innerText = title;
-                let badge = el("span");
-                badge.classList.add("badge", "rounded-pill", "bg-dark");
-                badge.innerText = parts[0].ucFirst();
-                let dat = el("span");
-                dat.className = "card-date";
-                dat.innerText = `${dd.toDateString()} ${dd.toTimeString()}`;
-
-                body.appendChild(h5);
-                body.appendChild(badge);
-                body.appendChild(dat);
-                let p = el("p");
-                p.className = "card-text";
-                p.innerText = ingress;
-                body.appendChild(p);
-                let a = el("a");
-                a.classList.add("btn", "btn-primary");
-                a.innerText = "Check Out";
-                a.href = `#${slug}`;
-                body.appendChild(a);
-                div.appendChild(body);
-                blog.appendChild(div);
+            .then((postText) => {
+                let postCard = createPostCard(postText, fileNameParts, title, postDate, postLink);
+                blog.appendChild(postCard);
             })
             .catch(e => console.error);
-
-
     });
 }
+
+function getFileNameParts(postFileName) {
+    let strippedPostFileName = postFileName.replace("/posts/", "").split(".");
+    let fileNameParts = strippedPostFileName[0].split("-");
+    return fileNameParts;
+}
+
+function getPostLink(fileNameParts, postPath) {
+    let link = `/posts/${fileNameParts.join("-")}`;
+    addressMap[link] = postPath;
+    return link;
+}
+
+function createPostCard(txt, parts, title, dd, slug) {
+    let { start, stop } = txt.getIndices("_");
+    let ingress = txt.substring(start + 1, stop);
+    let postCard = createTag("div", ["card"]);
+    let postImage = createTag("img", ["card-img-top"], "", { alt: parts[0], src: `/images/${parts[0]}.png` });
+    let postCardBody = createPostCardBody(title, parts, dd, ingress, slug);
+    appendChildren(postCard, [postImage, postCardBody]);
+    return postCard;
+}
+
+function createPostCardBody(title, parts, dd, ingress, slug) {
+    let postCardBody = createTag("div", ["card-body"]);
+    let postTitle = createTag("h5", [], title);
+    let postBadge = createTag("span", ["badge", "rounded-pill", "bg-dark"], parts[0].ucFirst());
+    let postDate = createTag("span", ["card-date"], `${dd.toLocaleString("nb-NO")}`);
+    let postIngress = createTag("p", ["card-text"], ingress);
+    let postLink = createTag("a", ["btn", "btn-primary", "float-end"], "Check Out", { href: `#${slug}` });
+    appendChildren(postCardBody, [postTitle, postBadge, postDate, postIngress, postLink]);
+    return postCardBody;
+}
+
 function loadBlog(cb) {
     fetch("/posts/posts.json")
         .then(r => r.json())
         .then(posts => {
-            console.log(posts);
             mapPosts(posts);
             cb();
         })
@@ -129,19 +123,117 @@ function loadBlog(cb) {
 }
 
 function handlePage(page) {
-
     if (page !== "" && page) {
-        loadPage(page);
+        renderPage(page);
         setBlogDisplay(false);
     } else {
+        blog.innerHTML = "";
         setBlogDisplay(true);
     }
-
 }
 
-function el(tag) {
-    return document.createElement(tag);
+function appendChildren(parent, children = []) {
+    children.forEach(c => parent.appendChild(c));
 }
+
+function createTag(tag, classes = [], text = "", attributes = {}) {
+    let el = document.createElement(tag);
+    el.innerText = text;
+    el.classList.add(...classes.filter(c => c));
+    for (let attr in attributes) {
+        // el[attr] = attributes[attr];
+        el.setAttribute(attr, attributes[attr]);
+    }
+    return el;
+}
+
+function createDropDownMenuItem(e, entry) {
+    let label = `${e}DropDown`;
+    let li = createTag("li", ["nav-item", "dropdown"]);
+    let a = createTag("a", ["nav-link", "dropdown-toggle"], e.ucFirst(), { href: "#", id: label, "role": "button", "data-bs-toggle": "dropdown", "aria-expanded": "false" });
+    li.appendChild(a);
+    let ul = createTag("ul", ["dropdown-menu"], "", { "aria-labelledby": label });
+    entry.forEach(item => {
+        let ili = createMenuItem(item, "dropdown-item");
+        ul.appendChild(ili);
+    });
+    li.appendChild(ul);
+    return li;
+}
+
+function createMenuItem(item, style = "nav-item") {
+    let li = createTag("li", [style]);
+    let a = createTag("a", ["nav-link"], item.text, { href: item.page });
+    a.innerText = item.text;
+    li.appendChild(a);
+    return li;
+}
+
+function createMenuElements(pagelist) {
+    let menu = document.getElementById("menu");
+    menu.innerHTML = "";
+    for (let e in pagelist) {
+        let entry = pagelist[e];
+        if (e === "main") {
+            entry.forEach(item => {
+                let li = createMenuItem(item);
+                menu.appendChild(li);
+            });
+        }
+        else {
+            let li = createDropDownMenuItem(e, entry);
+            menu.appendChild(li);
+        }
+    }
+}
+
+
+
+function mapMenu(list) {
+    let menu = {};
+    list.forEach((i) => {
+        let parts = i.split("/").filter(p => p !== ".");
+        if (!menu[parts[2]]) {
+            menu[parts[2]] = [];
+        }
+        let menuKey = parts[2];
+        let friendlyName = parts[3].replace(".md", "").replace(/\d\d-/, "").ucFirst();
+        let link = i.replace("/pages", "/#").replace(".md", "").replace("/.", "");
+        addressMap[`/${friendlyName}`] = link.replace("/#", "");
+        menu[menuKey].push({
+            page: `/#/${friendlyName}`,
+            menuEntry: menuKey,
+            text: friendlyName 
+        });
+    });
+    return menu;
+}
+
+function loadMenu(cb) {
+    fetch("/pages/pages.json")
+        .then((d) => d.json())
+        .then((p) => {
+            createMenuElements(mapMenu(p));
+            cb();
+        })
+        .catch((e) => cb(console.error(e)));
+}
+
+function load() {
+    loadMenu(() => {
+        loadBlog(() => {
+            handlePage(parsePage(window.location.href));
+        });
+    });
+}
+
+window.addEventListener("load", (e) => {
+    load();
+});
+
+window.addEventListener("popstate", (e) => {
+    load();
+});
 
 String.prototype.ucFirst = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -160,94 +252,3 @@ String.prototype.getIndices = function (char) {
     }
     return { start: start, stop: stop };
 }
-
-function mapMenu(pagelist) {
-    let menu = document.getElementById("menu");
-    menu.innerHTML = "";
-    for (let e in pagelist) {
-        let entry = pagelist[e];
-        if (e === "main") {
-            entry.forEach(item => {
-                let li = el("li");
-                li.className = "nav-item";
-                let a = el("a");
-                a.className = "nav-link";
-                a.href = item.page;
-                a.innerText = item.text;
-                li.appendChild(a);
-                menu.appendChild(li);
-            });
-        }
-        else {
-            let li = el("li");
-            li.classList.add("nav-item", "dropdown");
-            let a = el("a");
-            a.classList.add("nav-link", "dropdown-toggle");
-            a.href = "#";
-            let label = `${e}DropDown`
-            a.id = label;
-            a.innerText = e.ucFirst();
-            a.setAttribute("role", "button");
-            a.setAttribute("data-bs-toggle", "dropdown");
-            a.setAttribute("aria-expanded", "false");
-            li.appendChild(a);
-            let ul = el("ul");
-            ul.className = "dropdown-menu";
-            ul.setAttribute("aria-labelledby", label);
-            entry.forEach(item => {
-                let ili = el("li");
-                let ia = el("a");
-                ia.className = "dropdown-item";
-                ia.href = item.page;
-                ia.innerText = item.text;
-                ili.appendChild(ia);
-                ul.appendChild(ili);
-            });
-            li.appendChild(ul);
-            menu.appendChild(li);
-
-        }
-    }
-}
-function sortMenu(list) {
-    let menu = {};
-    list.forEach((i) => {
-        let parts = i.split("/").filter(p => p !== ".");
-        if (!menu[parts[2]]) {
-            menu[parts[2]] = [];
-        }
-        let friendlyName = parts[3].replace(".md", "").replace(/\d\d-/, "").ucFirst();
-        let link = i.replace("/pages", "/#").replace(".md", "").replace("/.", "");
-        addressMap[`/${friendlyName}`] = link.replace("/#", "");
-        menu[parts[2]].push({
-            page: `/#/${friendlyName}`,
-            menuEntry: parts[2],
-            text: friendlyName
-        });
-    });
-    return menu;
-}
-
-function loadMenu(cb) {
-    fetch("/pages/pages.json")
-        .then((d) => d.json())
-        .then((p) => {
-            mapMenu(sortMenu(p));
-            cb();
-        })
-        .catch((e) => cb(console.error(e)));
-}
-function load() {
-    loadMenu(() => {
-        loadBlog(() => {
-
-            handlePage(parsePage(window.location.href));
-        });
-    });
-}
-window.addEventListener("load", (e) => {
-    load();
-});
-window.addEventListener("popstate", (e) => {
-    load();
-});

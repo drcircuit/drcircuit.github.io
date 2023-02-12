@@ -1,10 +1,3 @@
-/*!
-  Theme: Nebula
-  Author: Gabriel Fontes (https://github.com/Misterio77)
-  License: ~ MIT (or more permissive) [via base16-schemes-source]
-  Maintainer: @highlightjs/core-team
-  Version: 2021.09.0
-*/
 pre code.hljs {
     display: block;
     overflow-x: auto;
@@ -59,9 +52,24 @@ code.hljs {
 .hljs-number,
 .hljs-symbol,
 .hljs-variable.constant_ {
-    color: #94929e
+    color: #94929e;
 }
 
+.hljs-variable{
+    color: #0aF;
+}
+
+.hljs-variable.constant_, .hljs-subst{
+    color: #acd;
+}
+
+.hljs-attr{
+    color: #4f90a2;
+}
+
+.hljs-number{
+    color: #f7f;
+}
 .hljs-class .hljs-title,
 .hljs-title,
 .hljs-title.class_ {
@@ -78,6 +86,10 @@ code.hljs {
 .hljs-string,
 .hljs-title.class_.inherited__ {
     color: #6562a8
+}
+
+.hljs-code{
+    color: #f00;
 }
 
 .hljs-built_in,
@@ -103,6 +115,14 @@ code.hljs {
     color: #716cae
 }
 
+.hljs-keyword{
+    color: #9dc;
+}
+
+.hljs-title.function_, .hljs-name{
+    color: #4ac;
+}
+
 .hljs-emphasis {
     color: #716cae;
     font-style: italic
@@ -112,6 +132,10 @@ code.hljs {
 .hljs-meta .hljs-keyword,
 .hljs-meta .hljs-string {
     color: #8c70a7
+}
+
+.hljs-string{
+    color: #eee;
 }
 
 .hljs-meta .hljs-keyword,

@@ -1,44 +1,80 @@
 let imgRoute = "/images/";
-let xhtml = false;
 
 function imageRenderer(href, title, text) {
-    console.log(href, title, text);
-    let out, iframe,m;
-
-    if (href && (m = href.match(/yt\/(\d+)/i))) {
+    let html, iframe;
+    let youtubeMatch = checkYoutubeVideo(href);
+    if (youtubeMatch) {
         iframe = true;
-        out = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${m[1]}" title="WCH Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen`;
+    }
+    html = buildStartTag(href, youtubeMatch, text);
+    html += buildAttributes(title, youtubeMatch);
+    html += buildEndTag(iframe);
+    return html;
+}
+
+function buildStartTag(href, m, text) {
+    if (href && m) {
+        return `<iframe src="https://www.youtube.com/embed/${m[1]}" title="WCH Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen`;
     }
     else {
-        out = `<img src="${imgRoute}${href}" alt="${text}"`;
+        return `<img src="${imgRoute}${href}" alt="${text}"`;
     }
+}
 
-    let a = (title && title.split(/\s+/)) || [];
-    let b = [];
-    let classNames = [];
-    a.forEach(function (w) {
-        if ((m = w.match(/^(\d+)x(\d+)$/))) return (out += ' width="' + m[1] + '" height="' + m[2] + '"');
-        if ((m = w.match(/^(\w+)=([\w-]+)$/))) {
-            if (m[1] === 'class') return classNames.push(m[2]);
-            return (out += ' ' + m[1] + '="' + m[2] + '"');
+function buildAttributes(title, m) {
+    let html = "";
+    let tokens = (title && title.split(/\s+/)) || [];
+    let titleParts = [], classNames = [];
+    tokens.forEach(function (w) {
+        if ((m = w.match(imageSizeToken()))) {
+            return html = `${html} width="${m[1]}" height="${m[2]} "`;
         }
-        if ((m = w.match(/^\.([\w-]+)$/))) return classNames.push(m[1]);
-        if (w) return b.push(w);
+        if ((m = w.match(imageAttributeToken()))) {
+            if (m[1] === 'class')
+                return classNames.push(m[2]);
+            return html = `${html} ${m[1]}="${m[2]}"`;
+        }
+        if ((m = w.match(/^\.([\w-]+)$/)))
+            return classNames.push(m[1]);
+        if (w)
+            return titleParts.push(w);
     });
+    html += buildClasses(classNames);
+    html += buildTitle(titleParts);
+    return html;
+}
 
+function imageAttributeToken() {
+    return /^(\w+)=([\w-]+)$/;
+}
+
+function imageSizeToken() {
+    return /^(\d+)x(\d+)$/;
+}
+
+function buildClasses(classNames) {
+    let output = "";
     if (classNames.length) {
-        out += ' class="' + classNames.join(' ') + '"';
+        output += ` class="${classNames.join(" ")}"`;
     }
+    return output;
+}
 
-    title = b.join(' ');
+function buildTitle(parts) {
+    let ouput = "";
+    let title = parts.join(' ');
 
     if (title) {
-        out += ' title="' + title + '"';
+        ouput += `title="${title}"`;
     }
-
-    out += iframe ? '></iframe>' :
-        xhtml ? '/>' :
-            '>';
-
-    return out;
+    return ouput;
 }
+
+function buildEndTag(iframe) {
+    return iframe ? "></iframe > " : " > ";
+}
+
+function checkYoutubeVideo(href) {
+    return href.match(/yt\/(\w+)/i);
+}
+
