@@ -25,7 +25,7 @@ function renderPage(page) {
         .then((d) => d.text())
         .then((md) => {
             content.innerHTML = "";
-            let pel = createTag("div", ["mdPage"],"")
+            let pel = createTag("div", ["mdPage"], "")
             pel.innerHTML = marked.parse(md);
             content.appendChild(pel);
         })
@@ -59,7 +59,7 @@ function getTitle(parts) {
 
 function mapPosts(posts) {
     let blog = document.getElementById("blog");
-    posts.forEach(postFileName => {
+    posts.forEach((postFileName, index) => {
         let postDate = new Date();
         try {
             postDate = new Date(Number(postFileName.split("#")[1]) * 1000);
@@ -73,7 +73,11 @@ function mapPosts(posts) {
             .then((r) => r.text())
             .then((postText) => {
                 let postCard = createPostCard(postText, fileNameParts, title, postDate, postLink);
-                blog.appendChild(postCard);
+                if (index >= blog.children.length) {
+                    blog.appendChild(postCard);
+                } else {
+                    blog.insertBefore(postCard, blog.children[index]);
+                }
             })
             .catch(e => console.error);
     });
@@ -203,7 +207,7 @@ function mapMenu(list) {
         menu[menuKey].push({
             page: `/#/${friendlyName}`,
             menuEntry: menuKey,
-            text: friendlyName 
+            text: friendlyName
         });
     });
     return menu;
