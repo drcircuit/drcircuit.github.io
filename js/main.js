@@ -1,4 +1,5 @@
-const content = document.getElementById('page');
+const content = document.getElementById("page");
+const blog = document.getElementById("blog");
 let addressMap = {};
 marked.setOptions({
     renderer: new marked.Renderer(),
@@ -16,8 +17,7 @@ marked.setOptions({
 });
 
 marked.use({ renderer: { image: imageRenderer } });
-marked.use({ extensions: [script] });
-
+marked.use({ extensions: [script, faicon], walkTokens });
 
 function renderPage(page) {
     let url = page.includes("/posts") ? `${page}` : `/pages${page}.md`;
@@ -34,10 +34,19 @@ function renderPage(page) {
         });
 }
 
+function setPageDisplay(visible) {
+    if (content) {
+        content.style.display = visible ? "block" : "none";
+    }
+}
+
 function setBlogDisplay(visible) {
-    let blog = document.getElementById("blog");
     if (blog) {
-        blog.hidden = !visible;
+        if (visible) {
+            blog.classList.remove("d-none");
+        } else {
+            blog.classList.add("d-none");
+        }
     }
 }
 
@@ -58,7 +67,7 @@ function getTitle(parts) {
 }
 
 function mapPosts(posts) {
-    let blog = document.getElementById("blog");
+    let loadedPosts = [];
     posts.forEach((postFileName, index) => {
         let postDate = new Date();
         try {
@@ -73,10 +82,11 @@ function mapPosts(posts) {
             .then((r) => r.text())
             .then((postText) => {
                 let postCard = createPostCard(postText, fileNameParts, title, postDate, postLink);
-                if (index >= blog.children.length) {
-                    blog.appendChild(postCard);
-                } else {
-                    blog.insertBefore(postCard, blog.children[index]);
+                postCard.setAttribute("data-index", index);
+                loadedPosts.push(postCard);
+                if (loadedPosts.length === posts.length) {
+                    loadedPosts.sort((a, b) => Number(a.getAttribute("data-index")) - Number(b.getAttribute("data-index")));
+                    appendChildren(blog, loadedPosts);
                 }
             })
             .catch(e => console.error);
@@ -129,9 +139,11 @@ function loadBlog(cb) {
 function handlePage(page) {
     if (page !== "" && page) {
         renderPage(page);
+        setPageDisplay(true);
         setBlogDisplay(false);
     } else {
         blog.innerHTML = "";
+        setPageDisplay(false);
         setBlogDisplay(true);
     }
 }
