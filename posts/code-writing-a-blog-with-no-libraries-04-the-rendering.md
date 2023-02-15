@@ -12,10 +12,10 @@ function renderPage(page) {
     fetch(url)
         .then((d) => d.text())
         .then((md) => {
-            content.innerHTML = "";
+            pageContent.innerHTML = "";
             let pel = createTag("div", ["mdPage"],"")
             pel.innerHTML = marked.parse(md);
-            content.appendChild(pel);
+            pageContent.appendChild(pel);
         })
         .catch((e) => {
             console.error(e);

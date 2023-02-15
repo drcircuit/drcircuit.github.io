@@ -1,4 +1,4 @@
-const content = document.getElementById("page");
+const pageContent = document.getElementById("page");
 const blog = document.getElementById("blog");
 let addressMap = {};
 marked.setOptions({
@@ -24,28 +24,22 @@ function renderPage(page) {
     fetch(url)
         .then((d) => d.text())
         .then((md) => {
-            content.innerHTML = "";
+            pageContent.innerHTML = "";
             let pel = createTag("div", ["mdPage"], "")
             pel.innerHTML = marked.parse(md);
-            content.appendChild(pel);
+            pageContent.appendChild(pel);
         })
         .catch((e) => {
             console.error(e);
         });
 }
 
-function setPageDisplay(visible) {
-    if (content) {
-        content.style.display = visible ? "block" : "none";
-    }
-}
-
-function setBlogDisplay(visible) {
-    if (blog) {
+function setElementDisplay(element, visible) {
+    if (element) {
         if (visible) {
-            blog.classList.remove("d-none");
+            element.classList.remove("d-none");
         } else {
-            blog.classList.add("d-none");
+            element.classList.add("d-none");
         }
     }
 }
@@ -139,12 +133,12 @@ function loadBlog(cb) {
 function handlePage(page) {
     if (page !== "" && page) {
         renderPage(page);
-        setPageDisplay(true);
-        setBlogDisplay(false);
+        setElementDisplay(pageContent, true);
+        setElementDisplay(blog, false);
     } else {
         blog.innerHTML = "";
-        setPageDisplay(false);
-        setBlogDisplay(true);
+        setElementDisplay(blog, true);
+        setElementDisplay(pageContent, false);
     }
 }
 
@@ -202,8 +196,6 @@ function createMenuElements(pagelist) {
         }
     }
 }
-
-
 
 function mapMenu(list) {
     let menu = {};

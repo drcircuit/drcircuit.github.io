@@ -44,6 +44,5 @@ function walkTokens(token) {
     console.log(token);                      // Post-processing on the completed token tree
     if (token.type === 'text' && token.text.substring(0,2) === "h)") {
         token.text = "";
-        //   token.tokens = this.Lexer.lexInline(token.text)
     }
   }
