@@ -1,4 +1,4 @@
-let imgRoute = "/images/";
+let imgRoute = "/";
 
 function imageRenderer(href, title, text) {
     let html, iframe;

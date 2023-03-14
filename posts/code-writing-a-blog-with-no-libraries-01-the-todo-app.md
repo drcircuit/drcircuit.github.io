@@ -3,9 +3,9 @@
 _Let me tell you about this idea I had. Let's try to write software without libraries!_
 
 ## Say what?!
-Ok, before you start your cancelling tweets, hear me out. Programming as a profession is a growing beast, and the programmers are getting more and more dependent on other peoples pieces of code. 
+Ok, before you start your canceling tweets, hear me out. Programming as a profession is a growing beast, and programmers are getting more and more dependent on other people's pieces of code. 
 
-Don't believe me? Write a quick To-Do app in React, Angular or whatever SPA-framework you choose, then compile and see how much code ends up in your application. It is borderline ridiculus for such an app.
+Don't believe me? Write a quick To-Do app in React, Angular or whatever SPA framework you choose, then compile and see how much code ends up in your application. It is borderline ridiculous for such an app.
 
 ## To-Do React
 
@@ -231,26 +231,26 @@ export default App;
 
 We get the following app:
 
-![](todo-react.png ".img-fluid .img-fluid .mx-auto .d-block")
-Which looks good, and it works. The code is also pretty easy to understand, however I must say that I am not a fan of all the inline ternary operators to hide/show portions of the UI. Also it takes some getting used to how React manages state. For instance, it requires a new reference to detect changes, rather than mutations in the object itself. Which I get, but it is not explicitly stated in the documentation.
+![](../images/todo-react.png ".img-fluid .img-fluid .mx-auto .d-block")
+Which looks good, and works. The code is also pretty easy to understand, however, I must say that I am not a fan of all the inline ternary operators to hide/show portions of the UI. Also, it takes some getting used to how React manages the state. For instance, it requires a new reference to detect changes, rather than mutations in the object itself. I get it, but it is not explicitly stated in the documentation.
 
 If we compile that for production, we end up with this in the output directory:
 
-![](todo-react-code.png ".img-fluid .img-fluid .mx-auto .d-block")
+![](../images/todo-react-code.png ".img-fluid .img-fluid .mx-auto .d-block")
 
 Yikes! 218KB of code!! Why?! My code was 228 lines long! 
 
 Let's open it up in VS Code and look at what is going on.
 
-![](todo-react-code-lines.png ".img-fluid .img-fluid .mx-auto .d-block")
+![](../images/todo-react-code-lines.png ".img-fluid .img-fluid .mx-auto .d-block")
 
-OMG! That is 11758 lines of code! My 228 lines are not even there anymore, it has been transpiled, obfuscated and optimized. I can debug my code in the browser through the 1.6MB of source map that contains debug symbols for my original code. But why do we need that much code to run my little To-Do app? 
+OMG! That is 11758 lines of code! My 228 lines are not even there anymore, it has been transpiled, obfuscated and optimized. I can debug my code in the browser through the 1.6MB of source map that contains debug symbols for my original code. But why do we need that much code to run my little To-Do app?
 
-Well the answer to that is the framework we've chosen. All the state-handling, event-handling, DOM-manipulation, JSX-parser/lexer/compiler and so on have to be baked into your application. This is equivalent to staticly linking to libraries in native languages. Baking all the necessary code to run the functions you've linked to into your binary. Another approach would be have the runtime as a separate piece of code. This can be added to your app with a script tag. This is the same as dynamically linking. You need the code to be available to the runtime environment, but not compiled together with your code.
+Well, the answer to that is the framework we've chosen. All the state-handling, event-handling, DOM manipulation, JSX-parser/-lexer/-compiler and so on have to be baked into your application. This is equivalent to statically linking to libraries in native languages. Baking all the necessary code to run the functions you've linked to into your binary. Another approach would be to have the runtime as a separate piece of code. This can be added to your app with a script tag. This is the same as dynamically linking. You need the code to be available to the runtime environment, but not compiled together with your code.
 
-But do we really need libraries to get this To-Do app up and running? All we need is the ability to handle state, manipulate the dom, and react to user actions. Wasn't that the very thing JavaScript was invented to do? Have we evolved into a planet full of framework dependent developers that we no longer possess the ability to create applications without using other peoples code as a platform?
+But do we need libraries to get this To-Do app up and running? All we need is the ability to handle the state, manipulate the dom, and react to user actions. Wasn't that the very thing JavaScript was invented to do? Have we evolved into a planet full of framework-dependent developers that no longer possess the ability to create applications without using other people's code as a platform?
 
-Let's try and create this with plain vanilla JavaScript, and no libraries. Well I will include Bootstrap 5 and FontAwesome - those were also part of the React version, so I think it is fair to be allowed them. I will however not use any other libraries, not even JQuery. I will only use native browser APIs. 
+Let's try and create this with plain vanilla JavaScript, and no libraries. Well, I will include Bootstrap 5 and FontAwesome - those were also part of the React version, so I think it is fair to be allowed them. I will however not use any other libraries, not even JQuery. I will only use native browser APIs. 
 
 Let's start with the HTML, this is the index.html file:
 
@@ -295,7 +295,7 @@ Let's start with the HTML, this is the index.html file:
 </html>
 ```
 
-We can see the structure is pretty much the same as the react app, the only difference is that instead of spraying the JSX template with different conditionals, and having half of the HTML inside the different source files, we have everything in one single file, and only HTML. We bind the button events to JavaScript actions, and you can see that we do not load any libraries, other than the CSS portion of Bootstrap, and a FontAwesome kit. 
+We can see the structure is pretty much the same as the react app, the only difference is that instead of spraying the JSX template with different conditionals and having half of the HTML inside the different source files, we have everything in one single file, and only HTML. We bind the button events to JavaScript actions, and you can see that we do not load any libraries, other than the CSS portion of Bootstrap, and a FontAwesome kit. 
 
 We use mostly the same styles as the React App, here is styles.css:
 
@@ -384,8 +384,8 @@ We use mostly the same styles as the React App, here is styles.css:
 
 Nothing special going on here, we just define the look and feel of the app.
 
-Here comes the juicy bit, let's dive into the JavaScript. 
-I know I will need a global object to hold the state of the todo list. So I create an empty array to hold the to-do items. I also know I want to manipulate the DOM by showing and hiding the two forms to do either editing or adding of the todos so I need a flag to know if I am currently editing, to show or hide the correct form.:
+Here comes the juicy bit, let's dive into JavaScript. 
+I know I will need a global object to hold the state of the to-do list. So I create an empty array to hold the to-do items. I also know I want to manipulate the DOM by showing and hiding the two forms to do either editing or adding the todos so I need a flag to know if I am currently editing, to show or hide the correct form.:
 
 ```javascript
 let todos = [];
@@ -400,9 +400,9 @@ function toggleForm(form, show) {
 }
 ```
 Nothing overly complicated there.
-I also know that when I load the page for the first time, I want to show the form for adding todos, and hide the form for editing todos. So I initialize the flag to "false". 
+I also know that when I load the page for the first time, I want to show the form for adding todos and hide the form for editing todos. So I initialize the flag to "false". 
 
-Let's create a function to show/hide a given form, and add a onLoad action to show the correct form based on the flag.
+Let's create a function to show/hide a given form, and add an onLoad action to show the correct form based on the flag.
 
 ```javascript
 function toggleForm(form, hidden) {
@@ -420,7 +420,7 @@ window.addEventListener("load", () => {
 ```
 That will show the add Todo form, and gives us this app:
 
-![](todo-vanilla-load.png ".img-fluid")
+![](../images/todo-vanilla-load.png ".img-fluid")
 
 Awesome, now let's add some todo's and add some routines to show them. We need to manipulate the DOM by creating elements and appending them to our page.
 
@@ -457,7 +457,7 @@ function createTodoElement(t) {
 }
 ```
 
-I also create a couple of functions to create the icons, this is just to make things more readable and keep the functions short. This is my personal preference. I prefer to keep functions to a maximum of 12-15 lines. I feel the code is more readable that way. Because source code is 90% for humans, and not machines.
+I also create a couple of functions to create the icons, this is just to make things more readable and keep the functions short. This is my personal preference. I prefer to keep functions to a maximum of 12-15 lines. I feel the code is more readable that way. Because source code is 90% for humans and not machines.
 
 ```javascript
 function createIcon(icon, evt) {
@@ -502,24 +502,9 @@ Again pretty simple, we utilize our createTag function to create this structure 
 </div>
 ```
 
-Notice we need to wrap the fontawesome icons, this is because FontAwesome removes mouse events by default, so wrapping them in a span gives us the ability to attach mouse event listeners. Which we want, since these icons are represent user UI actions. I also want the edit button to only be visible if the item is not completed, so I add a flag for that in the createIcons functions.
+Notice we need to wrap the font-awesome icons, this is because FontAwesome removes mouse events by default, so wrapping them in a span gives us the ability to attach mouse event listeners. Which we want, since these icons represent user UI actions. I also want the edit button to only be visible if the item is not completed, so I add a flag for that in the createIcons functions.
 
-Let's update the loadTodos function to add todos to the UI on every call if they are present in the global todo array:
-
-```javascript
-function loadTodos() {
-    let todoListContainer = document.getElementById("todos");
-    todoListContainer.innerHTML = "";
-    todos.forEach(t => {
-        let todoElement = createTodoElement(t);
-        todoListContainer.appendChild(todoElement);
-    });
-    toggleForm("addForm", editing);
-    toggleForm("editForm", !editing);
-}
-```
-
-There are ofcourse many different ways we could do this. I like this. This clears the UI state, and rebuilds it once called. Let's add an action to add a todo item. The action is allready hooked up in the HTML on the Add button, we just need to implement it:
+Let's update the loadTodos function to add todos to the UI on every call if they are present in the global todo array: There are of course many different ways we could do this. I like this. This clears the UI state and rebuilds it once called. Let's add an action to add a to-do item. The action is already hooked up in the HTML on the Add button, we just need to implement it:
 
 ```javascript
 function addTask() {
@@ -534,7 +519,7 @@ That is easy enough, we get a reference to the input element, get the value, cre
 
 We are now able to add todos:
 
-![](todo-vanilla-todos-add.png ".img-fluid .mx-auto .d-block")
+![](../images/todo-vanilla-todos-add.png ".img-fluid .mx-auto .d-block")
 
 Let's add the delete action, it should be pretty easy:
 
@@ -560,13 +545,11 @@ function toggleTask(id) {
     loadTodos();
 }
 ```
-Just like in React we toggle the complete flag. This flag is what controls the visiblity of the edit icon, and the presence of the "done" css class on the item element.
+Just like in React, we toggle the complete flag. This flag is what controls the visibility of the edit icon, and the presence of the "done" CSS class on the item element. The action is already hooked up in the UI by the createIcons function, so let's test it out!
 
-The action allready hooked up in the UI by the createIcons function, so let's test it out!
+![](../images/todo-vanilla-todos-complete.png ".img-fluid .mx-auto .d-block")
 
-![](todo-vanilla-todos-complete.png ".img-fluid .mx-auto .d-block")
-
-Yay, now we just need to add the ability to edit todos, well there is one thing we need to figure out. How do we know what specific todo item we are editing? Well an easy way would be to update the form to have a hidden element containing the id as a value. We can do it HTML, or we can do i programatically. I chose the latter:
+Yay, now we just need to add the ability to edit todos, well there is one thing we need to figure out. How do we know what specific to-do item we are editing? Well, an easy way would be to update the form to have a hidden element containing the id as a value. We can do it in HTML, or we can do so programmatically. I chose the latter:
 
 ```javascript
 function editTask(id, task) {
@@ -577,11 +560,11 @@ function editTask(id, task) {
     loadTodos();
 }
 ```
-We create a hidden input telement, and add the id of the todo-item to the value.
+We create a hidden input element and add the id of the todo-item to the value.
 
 Then we update the flag and reload the todos, this is what that looks like:
 
-![](todo-vanilla-todos-edit.png ".img-fluid .mx-auto .d-block")
+![](../images/todo-vanilla-todos-edit.png ".img-fluid .mx-auto .d-block")
 
 Let's do the cleanup in the cancel edit action:
 
@@ -611,7 +594,7 @@ function updateTask() {
     clearEditForm(); 
 }
 ```
-So we get the id, we map through the todo array and update the todo item matching the given id. Then we update the list of todos, clean up the form, and that cleanup does the reload for us. 
+So we get the id, map through the todo array and update the todo item matching the given id. Then we update the list of todos, clean up the form, and that cleanup does the reload for us. 
 
 That completes the app. 
 
@@ -730,11 +713,11 @@ window.addEventListener("load", () => {
     loadTodos();
 });
 ```
-A modest 111 lines of code, including whitespace between functions. That is 0.95% the amount of code compared to the React version. That means that in this application we control 100% of the functional code, while the React version we control less than 99% of the code running in production. Now I know this is a silly example, but I used it because a todo app is sort of like the "Hello, World!" of the SPA racket. I built the same app with Angular also, the result is double the size of React. It uses 370KB of code to achieve the same result.
+A modest 111 lines of code, including whitespace between functions. That is 0.95% of the amount of code compared to the React version. That means that in this application we control 100% of the functional code, while in the React version, we control less than 99% of the code running in production. Now I know this is a silly example, but I used it because a todo app is sort of like the "Hello, World!" of the SPA racket. I built the same app with Angular also, and the result is double the size of React. It uses 370KB of code to achieve the same result.
 
-So you may say that: Well, this really is a silly little example, and not what you build a SPA for...
+So you may say that: Well, this is a silly little example, and not what you build a SPA for...
 
-I took that argument at face value, and started building this blog. I gave myself the same restrictions as this todo app. No external libraries that I wouldn't also use with React or Angular, like FontAwesome, Bootstrap 5 and I use two more libraries. I could ommit these, but I will give you my reasoning in the next post! 
+I took that argument at face value and started building this blog. I gave myself the same restrictions as this to-do app. No external libraries that I wouldn't also use with React or Angular, like FontAwesome, and Bootstrap 5 and I use two more libraries. I could omit these, but I will give you my reasoning in the next post! 
 
 Stay tuned!
 

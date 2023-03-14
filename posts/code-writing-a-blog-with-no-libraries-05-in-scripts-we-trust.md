@@ -1,12 +1,12 @@
 # Writing this blog without any libraries
-## #5 - In scripts we trust! 
-_Ok I want to show off graphical demos using JavaScript, let's write a custom extenion to MarkedJS..._
+## #5 - In scripts we trust!
+_Ok, I want to show off graphical demos using JavaScript, let's write a custom extension to MarkedJS..._
 
 $ src="https://cdn.jsdelivr.net/npm/drcircuitscanvaslibrary@1.4/dcl.min.js" $
 
-So I love to program graphics demos and animations. I'm the kinda guy that just loves a good fractal or a couple of sinoids. So how can I add scripts via markdown?
-Well since MarkedJS is pretty extensible, and well documented, it should be easy to write a custom lexer, parser and renderer for a script element.
-But before we go and do something stupid, let's stop to think about what we are enabling. Aren't we really creating a local file inclusion vulnerability? Yes we are! Aren't we also enabling a code execution vulnerability? Absolutely! So is this a good idea? Well that depends, if you are running this on a backend, hell no! Or at least you really need to make sure you are sanitizing and controlling the user input thouroughly! But we don't have a backend! Nor do we have any servers, databases, passwd files, certificates or any other potential data that would pose a risk to our service or its users. So if you do a LFI attack against this blog, you can only include your own files, because we are running client side only! 1 point for no backends...
+So I love to program graphics demos and animations. I'm the kinda guy that just loves a good fractal or a couple of sinusoids. So how can I add scripts via markdown?
+Well since MarkedJS is pretty extensible, and well-documented, it should be easy to write a custom lexer, parser and renderer for a script element.
+But before we go and do something stupid, let's stop to think about what we are enabling. Aren't we creating a local file inclusion vulnerability? Yes, we are! Aren't we also enabling a code execution vulnerability? Absolutely! So is this a good idea? Well, that depends, if you are running this on a backend, hell no! Or at least you need to make sure you are sanitizing and controlling the user input thoroughly! But we don't have a backend! Nor do we have any servers, databases, password files, certificates or any other potential data that would pose a risk to our service or its users. So if you do an LFI attack against this blog, you can only include your files, because we are running client-side only! 1 point for no backends...
 
 So we need to decide upon a syntax. I decide that scripts will be defined by two $ signs. 
 
@@ -15,14 +15,14 @@ $ script.js $
 ```
 
 I also want the ability to put the canvas element inside a parent, and I want to be able to set the defer flag to ensure load order.
-So final syntax will be:
+So the final syntax will be:
 
 ```markdown
 $ script.js $
 $ script.js canvas=parent $
 $ script.js canvas=parent defer
 ```
-In order to get this going, we need to create an extension to MarkedJS that handles this syntax. Extensions to MarkedJS are pretty simple to build. They follow this template:
+To get this going, we need to create an extension to MarkedJS that handles this syntax. Extensions to MarkedJS are pretty simple to build. They follow this template:
 
 ```javascript
 const name = {
@@ -50,9 +50,9 @@ const script = {
     level: 'block',
     start(src) { return src.match(/$[^:\n]/)?.index; },
 ```
-We just use a simple regex to look for "$"
+We just use a simple regex to look for a new line.
 
-Next we need to get out the token, that is from $ to $, we do that with a custom tokenizer:
+Next, we need to get out the token, that is from $ to $, we do that with a custom tokenizer:
 
 ```javascript
  tokenizer(src) {
@@ -68,7 +68,7 @@ Next we need to get out the token, that is from $ to $, we do that with a custom
         }
     }
 ```
-We match whatever we find between two $ signs, again regex to the rescue. We craete a token named "script" a return it. 
+We match whatever we find between two $ signs, again regex to the rescue. We create a token named "script" a return it. 
 
 Next up is the renderer that should be fun:
 
@@ -93,7 +93,7 @@ renderer(token) {
         return `<!--- script: ${scriptElement.src} added --->\n${container.innerHTML}`;
     }
 ```
-So again I have split the code up into helper functions. One to parse the options, one to create a parent element if those options are set, and one to get the script src value.
+So again I have split the code up into helper functions. One to parse the options, one to create a parent element if those options are set, and one to get the script source value.
 
 ```javascript
 function getOptions(token) {
@@ -117,15 +117,15 @@ function createParentElementForScript(opts, container) {
 
 ```
 
-If we need to create a parent container, we use this utility function to create the element. We get the Id value from the right side of the equal sign. and we append it to the outer container. To render the script with the effect inside this, we need to handle that in the script itself, that is beyond the scope of this piece of code. It is only responsible for creating the element and making it available to the script.
+If we need to create a parent container, we use this utility function to create the element. We get the Id value from the right side of the equal sign. and we append it to the outer container. To render the script with the effect inside this, we need to handle that in the script itself, which is beyond the scope of this piece of code. It is only responsible for creating the element and making it available to the script.
 
-Finally we get the src of the script:
+Finally, we get the src of the script:
 ```javascript
 function getScriptSrc(opts) {
     return opts[0].split("=")[1].replace('"', "").replace('"', "");
 }
 ```
-Which is simply the first option - it is our tokenizer, we can make the rules!
+This is simply the first option - it is our tokenizer, and we can make the rules!
 
 This should make this work:
 ```markdown

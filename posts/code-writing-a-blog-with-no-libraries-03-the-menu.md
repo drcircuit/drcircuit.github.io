@@ -1,8 +1,8 @@
 # Writing this blog without any libraries
-## #3 - The menu. 
-_Ok we got a JSON file, now what?!_
+## #3 - The menu.
+_Ok, we got a JSON file, now what?!_
 
-Just to recap, we have a JSON file that we built using our nice shellscript. The file looks like this:
+Just to recap, we have a JSON file that we built using our nice shell script. The file looks like this:
 ```json
 [
 "/pages/main/01-me.md",
@@ -15,7 +15,7 @@ Just to recap, we have a JSON file that we built using our nice shellscript. The
 ]
 ```
 
-the folder acts like the menu option that the page is organized under, "main" will be the root level, while other folders will result in a drop-down menu, so "test.md" will be a choice in a drop-down menu named "Test". At least that is what I want to achieve. First we need to create some boilerplate HTML, Next we need to load the JSON file when the page loads.  I want this to be responsive - you know mobile first and all that... So utilizing Bootstrap 5, I came up with this base structure:
+the folder acts like the menu option that the page is organized under, "main" will be the root level, while other folders will result in a drop-down menu, so "test.md" will be a choice in a drop-down menu named "Test". At least that is what I want to achieve. First, we need to create some boilerplate HTML, Next, we need to load the JSON file when the page loads.  I want this to be responsive - you know mobile-first and all that... So utilizing Bootstrap 5, I came up with this base structure:
 
 ```HTML
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -67,7 +67,7 @@ function loadMenu(cb) {
 }
 ```
 That is easy enough using the Fetch API, we call for the file, then we map the menu with the return data, and finally call back to continue the execution flow.
-The createMenuElements first takes the output of mapMenu(). This sorts the menu into the nested structure for the sub-menus, and maps all adresses for the static pages into a global hashmap called "addressMap"
+The createMenuElements first takes the output of mapMenu(). This sorts the menu into the nested structure for the sub-menus and maps all addresses for the static pages into a global hashmap called "addressMap"
 
 ```javascript
 let addressMap = {};
@@ -100,7 +100,7 @@ String.prototype.ucFirst = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
 ```
-pretty simple stuff... It is also nice that you can pollute - ehrm extend - namespaces like this in JavaScript.
+pretty simple stuff... It is also nice that you can pollute - *cough* extend - namespaces like this in JavaScript.
 
 The createMenuElements builds the HTML elements for the menu:
 
@@ -146,7 +146,7 @@ function createMenuElements(pagelist) {
 }
 ```
 
-You can see the createTag function makes a comeback! And I also divide this functionality into helper functions for readability. The execution takes one of two paths, either it is part of main menu, or it is part of a sub-menu. We create tags and end up with this HTML structure:
+You can see the createTag function makes a comeback! And I also divide this functionality into helper functions for readability. The execution takes one of two paths, either it is part of the main menu, or it is part of a sub-menu. We create tags and end up with this HTML structure:
 
 ```HTML
 <ul id="menu" class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -179,12 +179,12 @@ You can see the createTag function makes a comeback! And I also divide this func
 </ul>
 ```
 
-This is all we need for the menu. Next we need to handle how we know what files we are rendering.
+This is all we need for the menu. Next, we need to handle how we know what files we are rendering.
 
-![](blog-menu-rendered.png ".img-fluid .mx-audo .d-block")
+![](../images/blog-menu-rendered.png ".img-fluid .mx-auto .d-block")
 
-Let's start with hooking up the onload and popstate events to call the loading of the pages.json file.
-Onload fires every time the page loads, and popstate fires every time the active history changes - that means every time we change the address bar, like page links!
+Let's start with hooking up the onload and pop state events to call the loading of the pages.json file.
+Onload fires every time the page loads, and pop state fires every time the active history changes - that means every time we change the address bar, like page links!
 
 ```javascript
 function load() {

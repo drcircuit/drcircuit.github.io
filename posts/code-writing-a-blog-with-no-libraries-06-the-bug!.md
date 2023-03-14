@@ -64,8 +64,8 @@ function mapPosts(posts) {
     });
 }
 ```
-So the convention here is that post filenames have a prefix which corresponds to an illustration, next comes the title, then we get the timestamp. 
-Now this works, but it doesn't give me what I want. I want to see some lead text as well as the title and date of the post. We need to read the actual post and pick some of the text to use as a lead text. I decide to use a paragraph marked with _ _ for italic text as the lead section. The only way to get this text is to load each post and pull the text out. That should be easy enough:
+So the convention here is that post filenames have a prefix that corresponds to an illustration, next comes the title, then we get the timestamp. 
+Now this works, but it doesn't give me what I want. I want to see some lead text as well as the title and date of the post. We need to read the actual post and pick some of the text to use as the lead text. I decide to use a paragraph marked with _ _ for italic text as the lead section. The only way to get this text is to load each post and pull the text out. That should be easy enough:
 
 ```javascript
 String.prototype.getIndices = function (char) {
@@ -116,7 +116,7 @@ function mapPosts(posts) {
 ```
 
 First I create a helper method extension to find the first two indices of the _ character. This is used by the createPostcard function to pull out the lead text from the post. Then that text and the rest of the elements are created, and we append the postcard element to the blog. Now this works, but there is a problem here.
-We have a race condition because the calls to fetch resolve asynchronously. So that means that the posts may return out of order, and we will have an messy list of posts.
+We have a race condition because the calls to fetch resolve asynchronously. So that means that the posts may return out of order, and we will have a messy list of posts.
 Well, you could call it a feature, like a way to ensure dynamic content - very SEO of us... But I call it a bug, and we need to fix it! You may have noticed it if you viewed the blog earlier this week.
 
 The fix is pretty easy, there are many ways to handle this, but I chose to put all the post elements in an array, add a custom attribute with their index, then sort the array on that attribute before appending the posts, this works. We can't just use the index and put it into the array because in Javascript if you insert something into a certain index in an array, it will affect the length of that array. So we need a different way to handle this:
@@ -149,7 +149,7 @@ function mapPosts(posts) {
     });
 }
 ```
-So we have our array named "loadedPosts" and we only append the elements after we naively have resolved all promises. Now depending on your solution and how you load stuff this may or may not be sufficient. I know my posts are there, because I load them from static files, so I can afford to be naive here. But this code is fragile if you have transient errors, like one request doesn't resolve, then we will get nothing displayed. For now I accept this limitation and risk - but we may need to handle this at some point.
+So we have our array named "loadedPosts" and we only append the elements after we naively have resolved all promises. Now depending on your solution and how you load stuff this may or may not be sufficient. I know my posts are there because I load them from static files, so I can afford to be naive here. But this code is fragile if you have transient errors like one request doesn't resolve, then we will get nothing displayed. For now, I accept this limitation and risk - but we may need to handle this at some point.
 
 Now that we have a way to display posts we need to handle if we are showing a page, a post or a list of posts. To render the post, we reuse our function to render pages, this is why we chose markdown, and we have written that previously, so it should work out of the box:
 ```javascript
@@ -169,7 +169,7 @@ function renderPage(page) {
 }
 ``` 
 So that is fine, and it works.
-So we need to show the blog post list when we are not viewing a post or a page, and at the same time hide the page container, and the other way around when we are viewing a post or a page.
+So we need to show the blog post list when we are not viewing a post or a page, and at the same time hide the page container and the other way around when we are viewing a post or a page.
 
 So I came up with this solution:
 ```javascript
@@ -200,18 +200,18 @@ Then we set the correct elements to be visible and hidden depending on what we a
 
 Great! Now we have blog posts!
 
-![](blog-post-list.png ".img-fluid .mx-auto .d-block")
+![](../images/blog-post-list.png ".img-fluid .mx-auto .d-block")
 
 And we can render this post:
-![](blog-post-rendered.png ".img-fluid .mx-auto .d-block")
+![](../images/blog-post-rendered.png ".img-fluid .mx-auto .d-block")
 
 This series of how I created this blog without libraries is near its conclusion. I will extend this blog system with more features as time progresses to suit my needs.
 The full source is available on Github:
 
 https://github.com/drcircuit/drcircuit.github.io
 
-You are free to copy, change and mangle the code to suit your own needs. I wrote this as an exercise to see how far you can get without reverting back to the big gun front libraries. And I was suprised! I have been working with frameworks and libraries for so long, I had forgotten how versatile, expressive and useful JavaScript is. I hope that you too see that you do not need a library like React to build a blog, nor do you need a backend in Node or NextJS, nor do you need any dynamic web features. 
+You are free to copy, change and mangle the code to suit your own needs. I wrote this as an exercise to see how far you can get without reverting to the big gun front-end libraries. And I was surprised! I have been working with frameworks and libraries for so long, I had forgotten how versatile, expressive and useful JavaScript is. I hope that you too see that you do not need a library like React to build a blog, nor do you need a backend in Node or NextJS, nor do you need any dynamic web features. 
 
-In the next and final post, I will show you how I actually build, deploy and host it! 
+In the next and final post, I will show you how I build, deploy and host it! 
 
 _Written by The WorkingClassHacker_

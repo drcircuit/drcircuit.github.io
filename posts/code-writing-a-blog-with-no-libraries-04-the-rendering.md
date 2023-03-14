@@ -2,7 +2,7 @@
 ## #4 - The rendering. 
 _Let's tackle the rendering, how hard can that be, right?_
 
-Yes my friends the day has come, we will need to do some rendering! Thankfully, I have allready decided to offload all the heavy lifting to a library. So I did say to write this without libraries, but this let's me show my point for this whole thing. My point is that we do not need libraries to handle user actions, state management and DOM manipulation. That is what JavaScript is invented to do. It is designed for that very purpose. My point is that we should try to see how far we come without resorting to using thousands of lines of 3rd party code before we absolutely need to, or it just makes sense with respect to cost, risk, time and resources. It is all a balancing act, and is something we should be concious and aware of when building systems. And now the time has come in this project, that I feel that writing a markdown compiler is not something I want to do at this point in time, when MarkedJS is pretty lean and does the job wonderfully. I also want it to be extensible, but more on why later.
+Yes, my friends the day has come, we will need to do some rendering! Thankfully, I have already decided to offload all the heavy lifting to a library. So I did say to write this without libraries, but this lets me show my point for this whole thing. My point is that we do not need libraries to handle user actions, state management and DOM manipulation. That is what JavaScript is invented to do. It is designed for that very purpose. My point is that we should try to see how far we come without resorting to using thousands of lines of 3rd party code before we need to, or it just makes sense concerning cost, risk, time and resources. It is all a balancing act and is something we should be conscious and aware of when building systems. And now the time has come in this project, that I feel that writing a markdown compiler is not something I want to do at this point when MarkedJS is pretty lean and does the job wonderfully. I also want it to be extensible, but more on why later.
 
 We left off getting a link to the markdown file off the addressMap. That link is delegated to the renderPage function. 
 
@@ -24,12 +24,13 @@ function renderPage(page) {
 ```
 
 So we start by figuring out if we need a page or post, if it is a page, we append the /pages folder to the link.
-Next our trusty friend fetch does the loading of the file. We parse it as plain text, and create a container element.
+
+Next, our trusty friend fetch does the loading of the file. We parse it as plain text and create a container element.
 Then we let MarkedJS render the markdown and voilá we have a rendered page!
 
-![](blog-page-rendering.png ".img-fluid .mx-auto .d-block")
+![](../images/blog-page-rendering.png ".img-fluid .mx-auto .d-block")
 
-Let's add the syntax highliting to the Marked-pipeline with HighlightJS, this is done by adding a hook to the MarkedJS config
+Let's add the syntax highlighting to the Marked pipeline with HighlightJS, this is done by adding a hook to the MarkedJS config
 ```javascript
 marked.setOptions({
     renderer: new marked.Renderer(),
@@ -54,33 +55,17 @@ The theme is chosen from one of the standard themes on the HighlightJS website, 
 Then I modified it to my liking!
 Now we have fancy colored code on the blog!!
 
-![](blog-code-highlighting.png ".img-fluid .mx-auto .d-block")
+![](../images/blog-code-highlighting.png ".img-fluid .mx-auto .d-block")
 
-Next I want to render images, and I also want to be able to embed youtube videos on this thing. 
-So what to do. Well MarkedJS let's you extend it's functionality. You can create custom elements, custom renderers, custom lexers and parsers pretty easilly. 
-Let's build a custom renderer for images. I will use the standard image token for markdown and extend it to be able to add dimensions, classes and add a prefix "yt/" to indicate a youtube video to embed rather than an image. I can do so by creating a custom renderer for images:
+Next, I want to render images, and I also want to be able to embed youtube videos on this thing. 
+So what to do? Well, MarkedJS lets you extend its functionality. You can create custom elements, custom renderers, custom lexers and parsers pretty easily. 
 
-```javascript
-let imgRoute = "/images/";
-
-function imageRenderer(href, title, text) {
-    let html, iframe;
-    let youtubeMatch = checkYoutubeVideo(href);
-    if (youtubeMatch) {
-        iframe = true;
-    }
-    html = buildStartTag(href, youtubeMatch, text);
-    html += buildAttributes(title, youtubeMatch);
-    html += buildEndTag(iframe);
-    return html;
-}
-```
-Now this method we can hook into MarkedJS pipeline by registering it:
+Let's build a custom renderer for images. I will use the standard image token for markdown and extend it to be able to add dimensions, CSS classes and add a prefix "yt/" to indicate a youtube video to embed rather than an image. I can do so by creating a custom renderer for images: Now, this method we can hook into the MarkedJS pipeline by registering it:
 ```javascript
 marked.use({ renderer: { image: imageRenderer } });
 ```
 
-Again I have created helper functions for readability. You will probably see that a great deal on this blog. I am a firm believer that code should read like prose, and your intentions for writing the code should be clearly stated from the code itself. Such code has no need for comments that rarely get updated, the code itself is the documentation. I kinda like that. A great developer friend once told me: "You should write your code the way you would if you knew the next person who has to maintain it is a serial killer and knows where you live." All violence asside, it makes perfect sense. Good developers make their code understandable to others. 
+Again I have created helper functions for readability. You will probably see that a great deal on this blog. I am a firm believer that code should read like prose, and your intentions for writing the code should be clearly stated from the code itself. Such code does not need comments that rarely get updated, the code itself is the documentation. I kinda like that. A great developer friend once told me: "You should write your code the way you would if you knew the next person who has to maintain it is a serial killer and knows where you live." All violence aside, it makes perfect sense. Good developers make their code understandable to others. 
 
 The checkYoutubeVideo function is just a regex match to find the "yt/" prefix, if that is there, we know we want to build a youtube iframe, if not, we build a regular image tag.
 
@@ -102,7 +87,7 @@ function buildStartTag(href, m, text) {
 }
 ```
 
-The magic happens in the buildAttributes function. This is where we figure out if we have a size constraint, we use the syntax "640x480", parse that out and set the height and width attributes. Next we set any other attributes, and we also pick up any CSS classes and build add them to the "class" attribute:
+The magic happens in the buildAttributes function. This is where we figure out if we have a size constraint, we use the syntax "640x480", parse that out and set the height and width attributes. Next, we set any other attributes, and we also pick up any CSS classes and build and add them to the "class" attribute:
 
 ```javascript
 function buildAttributes(title, m) {
@@ -165,13 +150,13 @@ function buildEndTag(iframe) {
 Great we can now embed images and videos by using the following syntax:
 
 ```markdown
-![](me.jpg "256x256 .rounded-circle .d-block .mx-auto alt='me'")
+![](../images/me.jpg "256x256 .rounded-circle .d-block .mx-auto alt='me'")
 ![](yt/x9H4KeH_PUw "800x350  .d-block .mx-auto")
 ```
 
 Those will render like this:
 
-![](me.jpg "256x256 .rounded-circle .d-block .mx-auto alt='me'")
+![](../images/me.jpg "256x256 .rounded-circle .d-block .mx-auto alt='me'")
 
 ![](yt/x9H4KeH_PUw "800x350 .d-block .mx-auto")
 
