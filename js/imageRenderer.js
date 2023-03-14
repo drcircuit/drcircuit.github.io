@@ -17,6 +17,7 @@ function buildStartTag(href, m, text) {
         return `<iframe src="https://www.youtube.com/embed/${m[1]}" title="WCH Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen`;
     }
     else {
+        imgRoute = imgRoute.replace("../../","../");
         return `<img src="${imgRoute}${href}" alt="${text}"`;
     }
 }
