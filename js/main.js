@@ -27,7 +27,9 @@ function renderPage(page) {
             pageContent.innerHTML = "";
             let pel = createTag("div", ["mdPage"], "")
             pel.innerHTML = marked.parse(md);
+            console.log(md);
             pageContent.appendChild(pel);
+            hljs.highlightAll();
         })
         .catch((e) => {
             console.error(e);
