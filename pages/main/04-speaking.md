@@ -10,4 +10,5 @@ Here is a list of upcomming talks I am giving:
 - How Hacking Works - Web Edition
     - NDC London 2024, February 2nd, 2024
 
--
+- A game engine over the weekend
+    - NDC Syndey 2024
