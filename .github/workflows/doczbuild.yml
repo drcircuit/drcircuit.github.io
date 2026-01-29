@@ -1,4 +1,4 @@
-# WCH's build and releas pipeline!
+# WCH's build and release pipeline!
 
 name: Build my blog!
 
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Build and package
         env:
           PREFIX_PATHS: 'true'
@@ -43,29 +43,18 @@ jobs:
           ./pack.sh
         shell: bash
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./static
-      - name: Deploy GitHub Pages site
-        uses: actions/deploy-pages@v1.2.4
-        with:
-          # Should this action only emit build telemetry instead of deploying the build artifact?
-          emit_telemetry: false
-          # The status of the previous build.
-          token: ${{github.token}}
-          # Time in milliseconds after which to timeout and cancel the deployment (default: 10 minutes)
-          timeout: 600000
-          # Maximum number of status report errors before cancelling a deployment (default: 10)
-          reporting_interval: 5000
 
   # Deployment job
-  # deploy:
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   steps:
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v1
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
