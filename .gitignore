@@ -2,3 +2,4 @@ posts.json
 pages.json
 static
 .vscode
+.DS_Store
