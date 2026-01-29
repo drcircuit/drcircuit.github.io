@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkingClassHacker - Complete Blog</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            font-size: 2em;
+            border-bottom: 3px solid #333;
+            padding-bottom: 0.3em;
+        }
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 0.2em;
+        }
+        h3 {
+            font-size: 1.2em;
+        }
+        p {
+            margin: 0.5em 0;
+        }
+        section {
+            page-break-after: auto;
+            break-after: auto;
+            margin-bottom: 3em;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Courier New", monospace;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #333;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+        blockquote {
+            border-left: 4px solid #ccc;
+            margin-left: 0;
+            padding-left: 20px;
+            color: #666;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 1em 0;
+        }
+        ul, ol {
+            margin: 0.5em 0;
+            padding-left: 2em;
+        }
+        li {
+            margin: 0.25em 0;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:visited {
+            color: #663399;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        table th,
+        table td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        table th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 2px solid #ccc;
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section id="page-me">
+<h1>Who is the Working Class Hacker?</h1>
+
+<img src="../../images/me.jpg" alt="" />
+Hello World! My name is Espen. I live in Norway with my wife and three kids. I was born in 1979, sold my first piece of software in 1989, got engaged in 2001, married in 2002, and entered fatherhood in 2008, 2010 and 2013.
+
+Throughout the course of my life, I have worked on countless software projects, spanning a vast majority of languages and platforms, and as a result, I am fluent in many forms of communication.
+
+<h2>Languages</h2>
+I have written production code in a bunch of different languages. Examples in no particular order: C/C++, Pascal, Delphi, C#, Java, JavaScript, TypeScript, CoffeeScript, ActionScript, PHP, Perl, Different flavors of Assembly, BASIC, Visual Basic, VBA, Classic ASP, VBScript, Shell Script, Lua, Rust, Go, Solidity, F#, and a bunch of others...
+
+<h2>The origin story</h2>
+
+I got started out with a Commodore 64 that my older brother got in a trade. He traded an illicit substance for this computer. I think of this as the drug deal of the century. It came with a power brick and an RF cable to hook it up to the TV, and a cassette player. No disks, no manuals, no software. I was 6 years old at the time. And I would spend hours, days and weeks trying to learn as much as I could about that marvelous machine.
+
+One day I found a book with games for the C64 in the library - yes a book! Back in the 80s paper was a perfectly viable software distribution medium. The book had pages with source code in BASIC, and your job was to type it in correctly, and you would have your game. There was always a problem with the code, either the original author had a bug in it, it was translated from another machine's BASIC dialect, or the typeset of the print operator didn't have the correct symbols. This led to a heap of frustration, but it also taught me the way of the programmer. You just fail repeatedly till there are no more failures to be made, and then - and only then you will have your running software!
+
+That feeling when the game finally ran on our machine was magical! That feeling is the same feeling I still get once I get something to compile and the computer does its magical thing.
+
+<h2>Departing from the C64</h2>
+My brother sold the C64. Which made me pretty sad. But I got an NES for Christmas, so I got into gaming. I had to take a tiny pause from owning a computer for a couple of years. I did however spend time getting my NES to do fun stuff.
+
+Then one magical day I got my first PC, a 486 SX 25! My mother and I bought that thing together using her Christmas bonus. She didn't bother learning how to use it, but I did. While I did use it to play games and do schoolwork, my main hobby was programming. I created games, graphics, and utilities I had a blast and learned a lot!
+
+<h2>Demoscene</h2>
+Graphics, sound and music programming became a passion. I got the opportunity to join a crew that attended what we called "copy parties". Officially they were named "demo parties" because we didn't want anyone snooping around and catching us pirating heaps of software. Now being called "LAN parties", my kids think "LAN" is only referring to these gatherings, and I keep telling them we have a LAN in our house... oh well. Anyways, these parties had competitions, or compos, where we were competing in writing demos. These demos were graphics, sound and music written in software that tried to squeeze as much out of the hardware as possible, to create the most stunning demo. There were many disciplines, we competed in 4k, 16k, and 64k. If you want a challenge for yourself, try and write something graphical in 3d with textures and sound with only 4096 bytes available - including libraries, textures, music and sound files!
+
+<h3>Example:</h3>
+<em>an example of a wormhole effect</em>
+
+
+This is a classic effect! It uses a texture lookup method and a cylindric projection transformation to create a tunnel. Apply some trig transforms and you're off on your cosmic journey...
+
+<h2>School</h2>
+I was voted out of high school by the employees. So I decided to start working in development full-time. I had already gotten paid for consulting gigs by then. I sold my first piece of software when I was 10. Since then I had sold many pieces of code, and gotten paid for fixing networks, printers and copy machines. So I thought that not being able to go to school would be an advantage. I could just work.
+
+My first job was programming firmware for a computer that was hanging under a helicopter that did imaging of powerline failures. Since then I have done everything from drivers to gif banners.
+
+So ever since my first experience programming a computer, I have relentlessly kept going on my quest for all harvesting knowledge from as many corners of this wonderful world of software development.
+
+<h2>This blog</h2>
+I plan on sharing my experiences on my blog, however, I will need to finish the blogging system first...
+I may post a series on this blog about the development...
+</section>
+
+<section id="page-work">
+<h1>Work</h1>
+My dayjob is at DNB Bank ASA in Norway, I work in the NewTechLab division, which is an innovation lab where we tinker with new technology.
+
+We are very hands on and coding is a big part of our daily life. We build functional prototypes, and have an exploratory mission to do technology driven innovation.
+</section>
+
+<section id="page-code">
+<h1>Code</h1>
+
+<pre><code>
+int main()
+{
+    puts(&quot;hello, world!&quot;);
+}
+</code></pre>
+</section>
+
+<section id="page-speaking">
+<h1>I speak at conferences!</h1>
+
+Here is a list of upcomming talks I have given:
+
+<li>How Hacking Works</li>
+<li>NDC Security 2023</li>
+<li>Manchester Tech Festival 2023</li>
+<li>Build Stuff Lithuania 2023</li>
+<li>NDC Tech Town 2023</li>
+<li>JFokus 2024</li>
+
+<li>How Hacking Works - Web Edition</li>
+<li>NDC Oslo 2023</li>
+<li>NDC London 2024</li>
+<li>NDC Porto 2024</li>
+<li>Øredev 2024</li>
+<li>Isaca Europe Conference 2024</li>
+
+<li>A game engine over the weekend</li>
+<li>NDC Syndey 2024</li>
+
+<li>How Hacking Works - Workshop Edition</li>
+<li>NDC Oslo 2023</li>
+<li>Build Stuff Lithuania 2024</li>
+
+<li>So You Wanna Be a Demoscener?</li>
+<li>NDC TechTown 2024</li>
+<li>Copenhagen Developers Festival 2024</li>
+<li>The Gathering 2025</li>
+
+<li>You can't do that with JavaScript!</li>
+<li>NDC Porto 2023</li>
+<li>NDC Sydney 2024</li>
+
+<li>AI Gone Wrong!</li>
+<li>Isaca Norway Christmas Seminar 2025</li>
+
+<li>WCH's Web Hacking Bootcamp</li>
+<li>NDC Oslo 2025</li>
+
+<h1>Talks I am currently offering that are fresh and new!</h1>
+These are talks I have developed recently and has not yet been presented. If you are eager for some content at your conference, seminar or meetup? Give me a ping and I'll promise not to disappoint!
+
+<li>Vibe Coding Gone Wrong!</li>
+<li>The Art of Curiosity.</li>
+<li>Graphics and Games a great Dev make you it will!</li>
+</section>
+
+<section id="page-talks">
+<h1>Talks</h1>
+
+These are some of my talks.
+
+<h2>Security</h2>
+
+<h3>How Hacking Works</h3>
+Have you ever been curious about how to get starting with hacking? What skills are involved? Is really only reserved for the most elite developers, or can it literally be learned by anyone? This talk goes through several concepts including binary exploitation, web vulnerabilities as well as reverse engineering.
+
+<h3>How Hacking Works - Web Edition</h3>
+Now binary exploitation might not be suited for everyone - even though it is very rewarding and fun! But nowadays most vulnerabilities reside on the world wide wide. So we are going deep into OWASP teritory and learning some key exploits in the webosphere - so saddle up and get ready to rumble!
+
+<h3>How Hacking Works - Workshop Edition (General or OWASP - your choice)</h3>
+Now how much can you really expect to learn with a one hour talk? That is the taste, but the work is left up to you. So why not go for a 2 or 3 day comprehensive kickstart to get your redteam ambitions bootstrapped?
+
+<h3>Quantumania - The armsrace of our time</h3>
+Quantum computing is something I have worked a lot with during the last 8 years. I have followed the technological developments and paradigms and the development is maturing much quicker than we may have anticipated. The key risk here is that this is one of those rare times where being a late adopter may not be the best strategy. Let me show you why!
+
+<h3>WCHs Web Hacking Bootcamp</h3>
+Now this is the intensive OWASP course that can span 1 day focused on some key topics, or up to 3 days to cover the entire latest top 10 vulnerability topics! Want to put your security aware coders up to speed, why not get into this immersive hands-on workshop to get a feel for the tools and tricks of the trade?
+
+<h3>AI Gone Wrong!</h3>
+Ok, so AI is everywhere, and the brass is pushing us to move on it quickly. What can go wrong? This cannot possibly fail right? Well, wrong - and there are examples - terrifying examples! Let me take you through some of the most epic fails of AI initiatives, and give you some critical thinking points to even out the hype. Because you don't want your hype train to be a runaway train dumpster fire!
+
+<h3>Vibe Coding Gone Wrong!</h3>
+Well one thing is AI in customer facing aspects, but what about the new trend of just "vibing" your apps into fruition? You don't need engineers right? You can just focus on requirements and push to production - job done! Well, that also has some pitfalls, let's explore some real world examples that show you why you still might want some skills in your production pool.
+
+<h3>Vibe Hacking Gone Wrong! (And why that is bad!)</h3>
+So if you thought that AI efficiency tools were only for the light side of the force, well think again. Vibe Hacking is a thing, and it is scary as fudge! Script kiddies are now armed with nuclear weapons, let us check out the status quo and start thinking about how we are going to handle the growing powers of the dark side.
+
+<h2>Programming</h2>
+<h3>So You Wanna Be a Demoscener?</h3>
+I cut my coding teeth in the golden era of the Demoscene subculture. It is an amazing place where creativity, ingenuity and get it done mindsets converge. Using hardcore maths and glorious hacks to create stunning audio-visual experience in a caffeine induced haze cramming to make the deadline? Ah that gets my blood flowing - even though the reward is just to see your work live on stage.
+
+<h3>You Can't Do That With JavaScript!</h3>
+Pet projects are a great way to hone your skills. And why not go against the current to build stuff that only serve the purpose of keeping Crockfords Law alive? This is a run through on how I build three different 3d rendering pipelines in vanilla JavaScript - with no libraries or help.
+
+<h3>A Game Engine Over The Weekend</h3>
+This is also in the pet-projects category. Only this one is a bit more useful. Here we will bootstrap a project that gives you a 2d game engine you can use to build pretty good games in. All in the scope of one weekend! You will learn a lot of game engine staples, the philosophy begind it. This comes in two versions: JavaScript or Rust.
+
+</section>
+
+<section id="page-contact">
+<h1>Contact</h1>
+
+Well, you can email me at <strong>workingclasshacker(a)gmail.com</strong>.Otherwise, you can find me on these social platforms:
+
+i(fa-brands fa-linkedin https://www.linkedin.com/in/espen-sande-larsen-26867584/ LinkedIn) i(fa-brands fa-github https://github.com/drcircuit Github) i(fa-brands fa-twitch https://www.twitch.tv/workingclasshacker Twitch)
+
+
+Hit me up!
+
+</section>
+
+<section id="posts-section">
+<h1>Blog Posts</h1>
+</section>
+
+<section id="post-code_writing_a_blog_with_no_libraries_01_the_todo_app">
+<h1>Writing this blog without any libraries</h1>
+<h2>#1 - The ToDo app.</h2>
+_Let me tell you about this idea I had. Let's try to write software without libraries!_
+
+<h2>Say what?!</h2>
+Ok, before you start your canceling tweets, hear me out. Programming as a profession is a growing beast, and programmers are getting more and more dependent on other people's pieces of code.
+
+Don't believe me? Write a quick To-Do app in React, Angular or whatever SPA framework you choose, then compile and see how much code ends up in your application. It is borderline ridiculous for such an app.
+
+<h2>To-Do React</h2>
+
+<h3>index.js</h3>
+<pre><code>
+import React from &#x27;react&#x27;;
+import ReactDOM from &#x27;react-dom/client&#x27;;
+import &#x27;./index.css&#x27;;
+import App from &#x27;./App&#x27;;
+import reportWebVitals from &#x27;./reportWebVitals&#x27;;
+
+const root = ReactDOM.createRoot(document.getElementById(&#x27;root&#x27;));
+root.render(
+  &lt;React.StrictMode&gt;
+    &lt;App /&gt;
+  &lt;/React.StrictMode&gt;
+);
+
+reportWebVitals();
+</code></pre>
+
+<h3>site.css</h3>
+<pre><code>
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: #333;
+  color: #eee;
+}
+
+h1 {
+  font-size: 3em;
+  color: #3ef;
+}
+
+.taskBg {
+  background-color: #666;
+  border-radius: 6px;
+  text-align: left;
+  padding: 1.2rem;
+  margin-bottom: 1em;
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.btn:nth-child(2){
+  margin-left: 20px;
+}
+.taskBg div{
+  display: flex;
+  align-items: center;
+}
+
+.taskBg .taskText {
+  flex: 1;
+  margin-left: 1em;
+  max-width: 80%;
+}
+
+.done .taskText {
+  text-decoration: line-through;
+  color: #0F0;
+}
+.done{
+  background-color: #444;
+}
+
+.taskNumber {
+  color: #bbb;
+  border: 1px solid #bbb;
+  border-radius: 50%;
+  display: flex;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 1rem;
+}
+.icons{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: auto;
+  display:inline-block;
+  transform: translateY(-50%);
+
+}
+
+.icons span{
+  margin: 0px 0px 0px 0.9em;
+  cursor: pointer;
+  color: #0f9;
+}
+.icons span:hover{
+  color: #f2f;
+}
+.icons span.done{
+  color: #0f0;
+}
+</code></pre>
+<h3>app.js</h3>
+<pre><code>
+import React, { useState } from &quot;react&quot;;
+import &quot;bootstrap/dist/css/bootstrap.min.css&quot;;
+import { FontAwesomeIcon } from &quot;@fortawesome/react-fontawesome&quot;;
+import { faCircleCheck, faPen, faTrashCan } from &quot;@fortawesome/free-solid-svg-icons&quot;;
+
+import &#x27;./App.css&#x27;;
+
+function App() {
+  const [toDos, setToDos] = useState([
+  ]);
+
+  const [newTask, setNewTask] = useState(&quot;&quot;);
+  const [updatingTask, setUpdatingTask] = useState(&quot;&quot;);
+
+  const addTask = () =&gt; {
+    const task = { id: toDos.length + 1, title: newTask, complete: false };
+    setToDos([...toDos, task]);
+    setNewTask(&quot;&quot;);
+  }
+
+  const deleteTask = (id) =&gt; {
+    const tasks = toDos.filter((t) =&gt; t.id !== id);
+    setToDos(tasks);
+  }
+
+  const completeTask = (id) =&gt; {
+    let newToDos = toDos.map((t) =&gt; {
+      if (t.id === id) {
+        t.complete = !t.complete;
+      }
+      return t;
+    });
+    setToDos(newToDos);
+  }
+
+  const cancelUpdate = () =&gt; {
+    setUpdatingTask(&quot;&quot;);
+  }
+
+  const updateTask = () =&gt; {
+    let updated = toDos.map((t) =&gt; {
+      if (t.id === updatingTask.id) {
+        t = { ...updatingTask };
+      }
+      return t;
+    });
+    setToDos(updated);
+    setUpdatingTask(&quot;&quot;);
+  }
+
+  const taskChanged = (e) =&gt; {
+    updatingTask.title = e.target.value;
+    setUpdatingTask({ ...updatingTask });
+  }
+
+  return (
+    &lt;div className=&quot;App container&quot;&gt;
+      &lt;h1&gt;ToDo&lt;/h1&gt;
+      {updatingTask !== &quot;&quot; ? (
+        &lt;div className=&quot;row&quot;&gt;
+          &lt;div className=&quot;col&quot;&gt;
+            &lt;input value={updatingTask.title} onChange={taskChanged} className=&quot;form-control form-control-lg&quot; /&gt;
+          &lt;/div&gt;
+          &lt;div className=&quot;col-auto&quot;&gt;
+            &lt;button onClick={updateTask} className=&quot;btn btn-lg btn-success&quot;&gt;
+              Update
+            &lt;/button&gt;
+            &lt;button onClick={cancelUpdate} className=&quot;btn btn-lg btn-danger&quot;&gt;
+              Cancel
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;) : (
+        &lt;div className=&quot;row&quot;&gt;
+          &lt;div className=&quot;col&quot;&gt;
+            &lt;input value={newTask} onChange={(e) =&gt; setNewTask(e.target.value)} className=&quot;form-control form-control-lg&quot; /&gt;
+          &lt;/div&gt;
+          &lt;div className=&quot;col-auto&quot;&gt;
+            &lt;button onClick={addTask} className=&quot;btn btn-lg btn-success&quot;&gt;
+              Add Task
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      )}
+      &lt;br /&gt;
+      {toDos.length === 0 ? &quot;No tasks&quot; : &quot;&quot;}
+      {toDos
+        .sort((a, b) =&gt; a.id - b.id)
+        .map((task, index) =&gt; {
+          return (
+            &lt;React.Fragment key={task.id}&gt;
+              &lt;div className={(task.complete ? &quot;done&quot; : &quot;&quot;) + &quot; row taskBg&quot;}&gt;
+                &lt;div&gt;
+                  &lt;span className=&quot;taskNumber&quot;&gt;{index + 1}&lt;/span&gt;
+                  &lt;span className=&quot;taskText&quot;&gt;{task.title}&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div className=&quot;icons&quot;&gt;
+                  &lt;span className={task.complete ? &quot;done&quot; : &quot;&quot;} title=&quot;mark complete&quot; onClick={() =&gt; completeTask(task.id)}&gt;
+                    &lt;FontAwesomeIcon icon={faCircleCheck} /&gt;
+                  &lt;/span&gt;
+                  {task.complete ? &quot;&quot; : (
+                    &lt;span title=&quot;edit&quot; onClick={() =&gt; setUpdatingTask({ ...task })}&gt;
+                      &lt;FontAwesomeIcon icon={faPen} /&gt;
+                    &lt;/span&gt;
+                  )}
+                  &lt;span title=&quot;delete&quot; onClick={() =&gt; deleteTask(task.id)}&gt;
+                    &lt;FontAwesomeIcon icon={faTrashCan} /&gt;
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/React.Fragment&gt;
+          )
+        })}
+    &lt;/div &gt;
+  );
+}
+export default App;
+</code></pre>
+
+We get the following app:
+
+<img src="../images/todo-react.png" alt="" />
+Which looks good, and works. The code is also pretty easy to understand, however, I must say that I am not a fan of all the inline ternary operators to hide/show portions of the UI. Also, it takes some getting used to how React manages the state. For instance, it requires a new reference to detect changes, rather than mutations in the object itself. I get it, but it is not explicitly stated in the documentation.
+
+If we compile that for production, we end up with this in the output directory:
+
+<img src="../images/todo-react-code.png" alt="" />
+
+Yikes! 218KB of code!! Why?! My code was 228 lines long!
+
+Let's open it up in VS Code and look at what is going on.
+
+<img src="../images/todo-react-code-lines.png" alt="" />
+
+OMG! That is 11758 lines of code! My 228 lines are not even there anymore, it has been transpiled, obfuscated and optimized. I can debug my code in the browser through the 1.6MB of source map that contains debug symbols for my original code. But why do we need that much code to run my little To-Do app?
+
+Well, the answer to that is the framework we've chosen. All the state-handling, event-handling, DOM manipulation, JSX-parser/-lexer/-compiler and so on have to be baked into your application. This is equivalent to statically linking to libraries in native languages. Baking all the necessary code to run the functions you've linked to into your binary. Another approach would be to have the runtime as a separate piece of code. This can be added to your app with a script tag. This is the same as dynamically linking. You need the code to be available to the runtime environment, but not compiled together with your code.
+
+But do we need libraries to get this To-Do app up and running? All we need is the ability to handle the state, manipulate the dom, and react to user actions. Wasn't that the very thing JavaScript was invented to do? Have we evolved into a planet full of framework-dependent developers that no longer possess the ability to create applications without using other people's code as a platform?
+
+Let's try and create this with plain vanilla JavaScript, and no libraries. Well, I will include Bootstrap 5 and FontAwesome - those were also part of the React version, so I think it is fair to be allowed them. I will however not use any other libraries, not even JQuery. I will only use native browser APIs.
+
+Let's start with the HTML, this is the index.html file:
+
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Todo App&lt;/title&gt;
+    &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;
+        integrity=&quot;sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+    &lt;script src=&quot;https://kit.fontawesome.com/05cfaa33b5.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h1&gt;Todo App&lt;/h1&gt;
+        &lt;div id=&quot;addForm&quot; class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col&quot;&gt;
+                &lt;input class=&quot;form-control form-control-lg&quot; type=&quot;text&quot; id=&quot;addTitle&quot; /&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-auto&quot;&gt;
+                &lt;button class=&quot;btn btn-lg btn-success&quot; onClick=&quot;addTask()&quot;&quot;&gt;Add Todo&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;editForm&quot; class=&quot;row&quot;&gt;
+                    &lt;div class=&quot;col&quot;&gt;
+                        &lt;input class=&quot;form-control form-control-lg&quot; type=&quot;text&quot; id=&quot;editTitle&quot; /&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-auto&quot;&gt;
+                        &lt;button class=&quot;btn btn-lg btn-success&quot; onClick=&quot;updateTask()&quot;&gt;Update&lt;/button&gt;
+                        &lt;button class=&quot;btn btn-lg btn-danger&quot; onClick=&quot;cancelUpdate()&quot;&gt;Cancel&lt;/button&gt;
+
+                    &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;br /&gt;
+            &lt;div class=&quot;row&quot; id=&quot;todos&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+We can see the structure is pretty much the same as the react app, the only difference is that instead of spraying the JSX template with different conditionals and having half of the HTML inside the different source files, we have everything in one single file, and only HTML. We bind the button events to JavaScript actions, and you can see that we do not load any libraries, other than the CSS portion of Bootstrap, and a FontAwesome kit.
+
+We use mostly the same styles as the React App, here is styles.css:
+
+<pre><code>
+.App {
+    text-align: center;
+  }
+  
+  body {
+    background-color: #333;
+    color: #eee;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 3em;
+    color: #3ef;
+  }
+  
+  .taskBg {
+    background-color: #666;
+    border-radius: 6px;
+    text-align: left;
+    padding: 1.2rem;
+    margin-bottom: 1em;
+    position: relative;
+    font-size: 1.5rem;
+  }
+  
+  .btn:nth-child(2){
+    margin-left: 20px;
+  }
+  .taskBg div{
+    display: flex;
+    align-items: center;
+  }
+  
+  .taskBg .taskText {
+    flex: 1;
+    margin-left: 1em;
+    max-width: 80%;
+  }
+  
+  .done .taskText {
+    text-decoration: line-through;
+    color: #0F0;
+  }
+  .done{
+    background-color: #444;
+  }
+  
+  .taskNumber {
+    color: #bbb;
+    border: 1px solid #bbb;
+    border-radius: 50%;
+    display: flex;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 1rem;
+  }
+  .icons{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: auto;
+    display:inline-block;
+    transform: translateY(-50%);
+  
+  }
+  
+  .icons svg{
+    margin: 0px 0px 0px 0.9em;
+    cursor: pointer;
+    color: #0f9;
+  }
+  .icons svg:hover{
+    color: #f2f;
+  }
+  .icons svg.done{
+    color: #0f0;
+  }
+</code></pre>
+
+Nothing special going on here, we just define the look and feel of the app.
+
+Here comes the juicy bit, let's dive into JavaScript.
+I know I will need a global object to hold the state of the to-do list. So I create an empty array to hold the to-do items. I also know I want to manipulate the DOM by showing and hiding the two forms to do either editing or adding the todos so I need a flag to know if I am currently editing, to show or hide the correct form.:
+
+<pre><code>
+let todos = [];
+let editing = false;
+</code></pre>
+
+Now let's put those things to the test. I add a function to show or hide a form by id. This is easy:
+
+<pre><code>
+function toggleForm(form, show) {
+    document.getElementById(form).hidden = show;
+}
+</code></pre>
+Nothing overly complicated there.
+I also know that when I load the page for the first time, I want to show the form for adding todos and hide the form for editing todos. So I initialize the flag to "false".
+
+Let's create a function to show/hide a given form, and add an onLoad action to show the correct form based on the flag.
+
+<pre><code>
+function toggleForm(form, hidden) {
+    document.getElementById(form).hidden = hidden;
+}
+
+function loadTodos() {
+    toggleForm(&quot;addForm&quot;, editing);
+    toggleForm(&quot;editForm&quot;, !editing);
+}
+
+window.addEventListener(&quot;load&quot;, () =&gt; {
+    loadTodos();
+});
+</code></pre>
+That will show the add Todo form, and gives us this app:
+
+<img src="../images/todo-vanilla-load.png" alt="" />
+
+Awesome, now let's add some todo's and add some routines to show them. We need to manipulate the DOM by creating elements and appending them to our page.
+
+I create a generic createTag function, to be able to create different kinds of elements, with attributes, classes and content.
+
+<pre><code>
+function createTag(tag, classes = [], text = &quot;&quot;, attributes = {}) {
+    let el = document.createElement(tag);
+    el.innerText = text;
+    el.classList.add(...classes.filter(c =&gt; c));
+    for (let attr in attributes) {
+        el[attr] = attributes[attr];
+    }
+    return el;
+}
+</code></pre>
+
+This function creates a DOM element, you can specify the CSS classes in an array of strings, the innerText and custom attributes.
+
+Let's create a function to create the todo DOM element, just like we did in our React loop.
+We can't use JSX syntax, so we will need to use our createTag function:
+
+<pre><code>
+function createTodoElement(t) {
+    let todoElement = createTag(&quot;div&quot;, [&quot;row&quot;, &quot;taskBg&quot;, t.complete ? &quot;done&quot; : &quot;&quot;]);
+    let todoContent = createTag(&quot;div&quot;);
+    let todoId = createTag(&quot;span&quot;, [&quot;taskNumber&quot;], t.id + 1);
+    let todoTitle = createTag(&quot;span&quot;, [&quot;taskText&quot;], t.task);
+    todoContent.appendChild(todoId);
+    todoContent.appendChild(todoTitle);
+    todoElement.appendChild(todoContent);
+    todoElement.appendChild(createTodoIcons(t.id, t.task, t.complete));
+    return todoElement;
+}
+</code></pre>
+
+I also create a couple of functions to create the icons, this is just to make things more readable and keep the functions short. This is my personal preference. I prefer to keep functions to a maximum of 12-15 lines. I feel the code is more readable that way. Because source code is 90% for humans and not machines.
+
+<pre><code>
+function createIcon(icon, evt) {
+    let iconElement = createTag(&quot;span&quot;); //FA removes mouse events, so we need to wrap it
+    iconElement.appendChild(createTag(&quot;span&quot;, [&quot;fa-solid&quot;, icon]));
+    if (evt) {
+        iconElement.addEventListener(&quot;click&quot;, evt);
+    }
+    return iconElement;
+}
+
+function createTodoIcons(id, task, complete) {
+    let iconsElement = createTag(&quot;div&quot;, [&quot;icons&quot;]);
+    iconsElement.appendChild(createIcon(&quot;fa-circle-check&quot;, () =&gt; { toggleTask(id) }));
+    if (!complete) {
+        iconsElement.appendChild(createIcon(&quot;fa-pen&quot;, () =&gt; { editTask(id, task) }));
+    }
+    iconsElement.appendChild(createIcon(&quot;fa-trash-can&quot;, () =&gt; { deleteTask(id) }));
+    return iconsElement;
+}
+</code></pre>
+
+Again pretty simple, we utilize our createTag function to create this structure per todo-item, and return the root element:
+
+<pre><code>
+&lt;div class=&quot;row taskBg&quot;&gt;
+  &lt;div class=&quot;&quot;&gt;
+    &lt;span class=&quot;taskNumber&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;taskText&quot;&gt;A todo item&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;icons&quot;&gt;
+    &lt;span class=&quot;&quot;&gt;
+      &lt;span class=&quot;fa-solid fa-circle-check&quot;&gt;&lt;/span&gt; 
+    &lt;/span&gt;
+    &lt;span class=&quot;&quot;&gt;
+      &lt;span class=&quot;fa-solid fa-pen&quot;&gt;&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;span class=&quot;&quot;&gt;
+      &lt;span class=&quot;fa-solid fa-trash-can&quot;&gt;&lt;/span&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+Notice we need to wrap the font-awesome icons, this is because FontAwesome removes mouse events by default, so wrapping them in a span gives us the ability to attach mouse event listeners. Which we want, since these icons represent user UI actions. I also want the edit button to only be visible if the item is not completed, so I add a flag for that in the createIcons functions.
+
+Let's update the loadTodos function to add todos to the UI on every call if they are present in the global todo array: There are of course many different ways we could do this. I like this. This clears the UI state and rebuilds it once called. Let's add an action to add a to-do item. The action is already hooked up in the HTML on the Add button, we just need to implement it:
+
+<pre><code>
+function addTask() {
+    let title = document.getElementById(&quot;addTitle&quot;);
+    todos.push({ id: todos.length, task: title.value, complete: false });
+    title.value = &quot;&quot;;
+    loadTodos();
+}
+</code></pre>
+
+That is easy enough, we get a reference to the input element, get the value, create a new todo item, clear the form and run the loadTodos function.
+
+We are now able to add todos:
+
+<img src="../images/todo-vanilla-todos-add.png" alt="" />
+
+Let's add the delete action, it should be pretty easy:
+
+<pre><code>
+function deleteTask(id) {
+    todos = todos.filter((t) =&gt; t.id !== id);
+    loadTodos();
+}
+</code></pre>
+
+Filter out the unwanted element, and reload the todos - just like in React!
+
+The same goes for toggling the completed status:
+
+<pre><code>
+function toggleTask(id) {
+    todos = todos.map((t) =&gt; {
+        if (t.id === id) {
+            t.complete = !t.complete;
+        }
+        return t;
+    });
+    loadTodos();
+}
+</code></pre>
+Just like in React, we toggle the complete flag. This flag is what controls the visibility of the edit icon, and the presence of the "done" CSS class on the item element. The action is already hooked up in the UI by the createIcons function, so let's test it out!
+
+<img src="../images/todo-vanilla-todos-complete.png" alt="" />
+
+Yay, now we just need to add the ability to edit todos, well there is one thing we need to figure out. How do we know what specific to-do item we are editing? Well, an easy way would be to update the form to have a hidden element containing the id as a value. We can do it in HTML, or we can do so programmatically. I chose the latter:
+
+<pre><code>
+function editTask(id, task) {
+    editTitle.value = task;
+    let idEl = createTag(&quot;input&quot;, [], &quot;&quot;, { &quot;id&quot;: &quot;taskId&quot;, &quot;type&quot;: &quot;hidden&quot;, &quot;value&quot;: id });
+    editForm.appendChild(idEl);
+    editing = true;
+    loadTodos();
+}
+</code></pre>
+We create a hidden input element and add the id of the todo-item to the value.
+
+Then we update the flag and reload the todos, this is what that looks like:
+
+<img src="../images/todo-vanilla-todos-edit.png" alt="" />
+
+Let's do the cleanup in the cancel edit action:
+
+<pre><code>
+function clearEditForm() {
+    let id = document.getElementById(&quot;taskId&quot;);
+    editForm.removeChild(id);
+    editTitle.value = &quot;&quot;;
+    editing = false;
+    loadTodos();
+}
+</code></pre>
+
+This is pretty simple, we start by removing the id element from the form, then we reset the values in the form, switch the editing flag and reload.
+
+Now we just need to be able to save the updated value and we are done:
+
+<pre><code>
+function updateTask() {
+    let id = document.getElementById(&quot;taskId&quot;);
+    todos = todos.map((t) =&gt; {
+        if (t.id.toString() === id.value) {
+            t.task = editTitle.value;
+        }
+        return t;
+    });
+    clearEditForm(); 
+}
+</code></pre>
+So we get the id, map through the todo array and update the todo item matching the given id. Then we update the list of todos, clean up the form, and that cleanup does the reload for us.
+
+That completes the app.
+
+This is the final JavaScript:
+
+<pre><code>
+let todos = [];
+let editing = false;
+
+function createTag(tag, classes = [], text = &quot;&quot;, attributes = {}) {
+    let el = document.createElement(tag);
+    el.innerText = text;
+    el.classList.add(...classes.filter(c =&gt; c));
+    for (let attr in attributes) {
+        el[attr] = attributes[attr];
+    }
+    return el;
+}
+
+function createTodoElement(t) {
+    let todoElement = createTag(&quot;div&quot;, [&quot;row&quot;, &quot;taskBg&quot;, t.complete ? &quot;done&quot; : &quot;&quot;]);
+    let todoContent = createTag(&quot;div&quot;);
+    let todoId = createTag(&quot;span&quot;, [&quot;taskNumber&quot;], t.id + 1);
+    let todoTitle = createTag(&quot;span&quot;, [&quot;taskText&quot;], t.task);
+    todoContent.appendChild(todoId);
+    todoContent.appendChild(todoTitle);
+    todoElement.appendChild(todoContent);
+    todoElement.appendChild(createTodoIcons(t.id, t.task, t.complete));
+    return todoElement;
+}
+
+function createIcon(icon, evt) {
+    let iconElement = createTag(&quot;span&quot;); //FA removes mouse events, so we need to wrap it
+    iconElement.appendChild(createTag(&quot;span&quot;, [&quot;fa-solid&quot;, icon]));
+    if (evt) {
+        iconElement.addEventListener(&quot;click&quot;, evt);
+    }
+    return iconElement;
+}
+
+function createTodoIcons(id, task, complete) {
+    let iconsElement = createTag(&quot;div&quot;, [&quot;icons&quot;]);
+    iconsElement.appendChild(createIcon(&quot;fa-circle-check&quot;, () =&gt; { toggleTask(id) }));
+    if (!complete) {
+        iconsElement.appendChild(createIcon(&quot;fa-pen&quot;, () =&gt; { editTask(id, task) }));
+    }
+    iconsElement.appendChild(createIcon(&quot;fa-trash-can&quot;, () =&gt; { deleteTask(id) }));
+    return iconsElement;
+}
+
+function toggleForm(form, hidden) {
+    document.getElementById(form).hidden = hidden;
+}
+
+function addTask() {
+    let val = document.getElementById(&quot;addTitle&quot;);
+    todos.push({ id: todos.length, task: val.value, complete: false });
+    val.value = &quot;&quot;;
+    loadTodos();
+}
+
+function deleteTask(id) {
+    todos = todos.filter((t) =&gt; t.id !== id);
+    loadTodos();
+}
+
+function toggleTask(id) {
+    todos = todos.map((t) =&gt; {
+        if (t.id === id) {
+            t.complete = !t.complete;
+        }
+        return t;
+    });
+    loadTodos();
+}
+
+function editTask(id, task) {
+    editTitle.value = task;
+    let idEl = createTag(&quot;input&quot;, [], &quot;&quot;, { &quot;id&quot;: &quot;taskId&quot;, &quot;type&quot;: &quot;hidden&quot;, &quot;value&quot;: id });
+    editForm.appendChild(idEl);
+    editing = true;
+    loadTodos();
+}
+
+function clearEditForm() {
+    let id = document.getElementById(&quot;taskId&quot;);
+    editForm.removeChild(id);
+    editTitle.value = &quot;&quot;;
+    editing = false;
+    loadTodos();
+}
+
+function updateTask() {
+    let id = document.getElementById(&quot;taskId&quot;);
+    todos = todos.map((t) =&gt; {
+        if (t.id.toString() === id.value) {
+            t.task = editTitle.value;
+        }
+        return t;
+    });
+    clearEditForm(); 
+}
+
+function loadTodos() {
+    let todoListContainer = document.getElementById(&quot;todos&quot;);
+    todoListContainer.innerHTML = &quot;&quot;;
+    todos.forEach(t =&gt; {
+        let todoElement = createTodoElement(t);
+        todoListContainer.appendChild(todoElement);
+    });
+    toggleForm(&quot;addForm&quot;, editing);
+    toggleForm(&quot;editForm&quot;, !editing);
+}
+
+window.addEventListener(&quot;load&quot;, () =&gt; {
+    loadTodos();
+});
+</code></pre>
+A modest 111 lines of code, including whitespace between functions. That is 0.95% of the amount of code compared to the React version. That means that in this application we control 100% of the functional code, while in the React version, we control less than 99% of the code running in production. Now I know this is a silly example, but I used it because a todo app is sort of like the "Hello, World!" of the SPA racket. I built the same app with Angular also, and the result is double the size of React. It uses 370KB of code to achieve the same result.
+
+So you may say that: Well, this is a silly little example, and not what you build a SPA for...
+
+I took that argument at face value and started building this blog. I gave myself the same restrictions as this to-do app. No external libraries that I wouldn't also use with React or Angular, like FontAwesome, and Bootstrap 5 and I use two more libraries. I could omit these, but I will give you my reasoning in the next post!
+
+Stay tuned!
+
+_Written by The WorkingClassHacker_
+</section>
+
+<section id="post-code_writing_a_blog_with_no_libraries_02_the_libraries">
+<h1>Writing this blog without any libraries</h1>
+<h2>#2 - The libraries.</h2>
+_Yes, I know I said no libraries, hear me out..._
+
+<h2>Only two libs</h2>
+I chose to use two more libs. Yes I know I am talking about libs, but I mean the huge libs and frameworks like Angular, React, Vue and so on. I don't count things like Bootstrap or any other common thing you load for a specific reason. I wouldn't criticize you for using the C standard library to handle file loading. Well, I might if we were writing a 16KB graphic demo, but that is the exception.
+
+<h2>Outline of the blog</h2>
+So I knew I needed a way to create posts. I quickly thought that using markdown would be a cool way to achieve that. It isn't WYSIWYG necessarily, but it is easily written, and easily converted to HTML. And there are some nice libraries out there that do the parsing, lexing and rendering of markdown. I evaluated some different ones and landed on using MarkedJS. It is a pretty small library, it is extensible, and if I choose to not use it anymore, I can easily transit to another, or write my own.
+
+I also knew I wanted to show source code with syntax highlighting in multiple languages, so instead of writing a lexer and parser for all the languages I want to showcase, I opted to use HighlightJS. But I promise that's all the libs I am using! Well, I do use my own canvas library to render graphic effects - but that doesn't count! I wrote it - in vanilla JavaScript!
+
+<h2>Backend</h2>
+I started writing a backend in .NET core but quickly stopped. Because as I was building that backend it dawned on me that I don't need a backend. Wait, what?! No backend?! Yes, no backend! Why would I want to create a backend, handle authentication and authorization, and secure everything and servers and hosting when all I want to do is essentially show text in a browser?
+
+I asked myself the question: Does it need to be dynamic or can it be static? The answer was surprisingly the latter. I quickly drew up the super simple architecture of my blog:
+
+<img src="../images/blog-architecture-simple.png" alt="" />
+
+So the idea is simple. Posts are stored on disk, listed in a JSON file, and the frontend loads that JSON file to display a list of posts. Those link to the actual markdown file, which is rendered by MarkedJS and shown to the user. All of this happens in the browser. Yeah, you may say that rendering Markdown is a backend task - but not in this case. We can easily defer the rendering to the browser, rendering a single page of markdown is easy for modern browsers. And that javascript engine has lots of free time because we are not using any SPA frameworks! More cycles for me!
+
+The first hurdle is the posts.json file. I need to populate that somehow. Because there is no easy way for me to enable listing files to the front end without either a backend or at least control over a web server - neither of which I want. I could do it manually, but where's the fun in that? Let's write a quick shell script to do this:
+
+<pre><code>
+#!/bin/bash
+rm posts.json 2&gt; /dev/null
+echo &quot;[&quot; &gt; posts.json
+for file in $(ls *.md); do 
+    ds=`date -r $file +%s`
+    echo $ds
+    name=&quot;  \&quot;/posts/${file}#${ds}\&quot;,&quot;;
+    
+    echo $name &gt;&gt; posts.json
+done
+infile=&quot;posts.json&quot;
+outfile=&quot;posts2.json&quot;
+bs=$((`cat $infile | wc -c` - 2))
+dd if=$infile of=$outfile bs=$bs count=1
+
+echo &quot;&quot; &gt;&gt; posts2.json
+echo &quot;]&quot; &gt;&gt; posts2.json
+
+rm posts.json
+mv posts2.json posts.json
+</code></pre>
+This removes the current file, loops over all files in the directory *.md, adds that to the JSON file, and Bob's your uncle. I tag the date as a timestamp after the .md extension. This is because I want to show the date on the blog. I could add a property and so on, but I'm too lazy :)
+I use dd to chop off the last bytes, that is the newline and the trailing comma.
+
+Now all I need to do is run that, to get a list of posts into the json file:
+
+<img src="../images/blog-build-script.png" alt="" />
+
+Nice, exactly what I need! That little shell script just replaced the need for an entire backend, database and crud management! I also do not need any authentication scheme because it is all static! The most secure website is the website you do not have to secure...
+
+I decide I want to not only have posts but also pages.
+Before we tackle the rendering, we know that we need a way to navigate this site, so we need a menu! Let's tackle that menu.
+
+I decided I wanted the ability to create submenus with a drop-down function. A nice way to do that since we created this shell script build system is to use a directory structure. But I don't need infinite dimensions deep, so I decide I will only need one level of dropdowns.
+
+As we did for posts we can do the same for pages, but they can have a simpler build script, no dates needed, but we keep the sub-directory by using -R on the ls.
+
+<pre><code>
+#!/bin/bash
+rm pages.json 2&gt; /dev/null
+echo &quot;[&quot; &gt; pages.json
+for file in $(ls -R ./**/*.md); do 
+    name=&quot;  \&quot;/pages/${file}\&quot;,&quot;;
+    echo $name
+    echo $name &gt;&gt; pages.json
+done
+infile=&quot;pages.json&quot;
+outfile=&quot;pages2.json&quot;
+bs=$((`cat $infile | wc -c` - 2))
+dd if=$infile of=$outfile bs=$bs count=1
+echo &quot;&quot; &gt;&gt; pages2.json
+echo &quot;]&quot; &gt;&gt; pages2.json
+rm pages.json
+mv pages2.json pages.json
+sed -i &#x27;s/\/.\//\//g&#x27; pages.json
+</code></pre>
+
+And shebang we got it! a pages.json, and a posts.json. This is all the backend we need. No database, no API, no NOSQL, nada nothing! Two JSON files are all we need.
+
+Now that we have the menu, pages and posts backend ready, let's start building the front end.
+
+But to keep these posts a bit shorter than the first one, let's continue in the next installment!
+
+_Written by The WorkingClassHacker_
+</section>
+
+<section id="post-code_writing_a_blog_with_no_libraries_03_the_menu">
+<h1>Writing this blog without any libraries</h1>
+<h2>#3 - The menu.</h2>
+_Ok, we got a JSON file, now what?!_
+
+Just to recap, we have a JSON file that we built using our nice shell script. The file looks like this:
+<pre><code>
+[
+&quot;/pages/main/01-me.md&quot;,
+&quot;/pages/main/02-work.md&quot;,
+&quot;/pages/main/03-code.md&quot;,
+&quot;/pages/main/04-speaking.md&quot;,
+&quot;/pages/main/05-workshops.md&quot;,
+&quot;/pages/main/06-contact.md&quot;,
+&quot;/pages/test/test.md&quot;
+]
+</code></pre>
+
+the folder acts like the menu option that the page is organized under, "main" will be the root level, while other folders will result in a drop-down menu, so "test.md" will be a choice in a drop-down menu named "Test". At least that is what I want to achieve. First, we need to create some boilerplate HTML, Next, we need to load the JSON file when the page loads.  I want this to be responsive - you know mobile-first and all that... So utilizing Bootstrap 5, I came up with this base structure:
+
+<pre><code>
+    &lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-dark fixed-top&quot;&gt;
+        &lt;div class=&quot;container-fluid&quot;&gt;
+            &lt;a class=&quot;navbar-brand&quot; href=&quot;&quot;&gt;
+                &lt;img src=&quot;/images/wchlogo.svg&quot; class=&quot;logo&quot; alt=&quot;logo&quot; width=&quot;64&quot; height=&quot;64&quot;&gt;
+                WorkingClassHacker
+            &lt;/a&gt;
+            &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot;
+                data-bs-target=&quot;#navbarSupportedContent&quot; aria-controls=&quot;navbarSupportedContent&quot; 
+                aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+                &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarSupportedContent&quot;&gt;
+                &lt;ul id=&quot;menu&quot; class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;main class=&quot;container-xxl&quot;&gt;
+        &lt;div id=&quot;content&quot; class=&quot;d-flex flex-fill justify-content-lg-center&quot;&gt;
+            &lt;div id=&quot;page&quot; class=&quot;page&quot;&gt;
+                &lt;div id=&quot;blog&quot;&gt;
+                    &lt;h1&gt;Blog&lt;/h1&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+        &lt;div class=&quot;d-flex flex-wrap justify-content-lg-center&quot;&gt;
+            &lt;p&gt;Copyright &amp;#169; 2023 by SunnyTownRoad Productions&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+</code></pre>
+
+So the nav element holds the menu, the main element holds the content - default is the blog post list, and finally a footer with the obligatory copyright line. Now we have the structure, we will parse the pages.json file and populate the unordered list with the id menu.
+
+Step 1 do the "API call" to load the file:
+
+<pre><code>
+function loadMenu(cb) {
+    fetch(&quot;/pages/pages.json&quot;)
+        .then((d) =&gt; d.json())
+        .then((p) =&gt; {
+            createMenuElements(mapMenu(p));
+            cb();
+        })
+        .catch((e) =&gt; cb(console.error(e)));
+}
+</code></pre>
+That is easy enough using the Fetch API, we call for the file, then we map the menu with the return data, and finally call back to continue the execution flow.
+The createMenuElements first takes the output of mapMenu(). This sorts the menu into the nested structure for the sub-menus and maps all addresses for the static pages into a global hashmap called "addressMap"
+
+<pre><code>
+let addressMap = {};
+
+function mapMenu(list) {
+    let menu = {};
+    list.forEach((i) =&gt; {
+        let parts = i.split(&quot;/&quot;).filter(p =&gt; p !== &quot;.&quot;);
+        if (!menu[parts[2]]) {
+            menu[parts[2]] = [];
+        }
+        let menuKey = parts[2];
+        let friendlyName = parts[3].replace(&quot;.md&quot;, &quot;&quot;).replace(/\d\d-/, &quot;&quot;).ucFirst();
+        let link = i.replace(&quot;/pages&quot;, &quot;/#&quot;).replace(&quot;.md&quot;, &quot;&quot;).replace(&quot;/.&quot;, &quot;&quot;);
+        addressMap[`/${friendlyName}`] = link.replace(&quot;/#&quot;, &quot;&quot;);
+        menu[menuKey].push({
+            page: `/#/${friendlyName}`,
+            menuEntry: menuKey,
+            text: friendlyName 
+        });
+    });
+    return menu;
+}
+</code></pre>
+The reason for that hashmap is I want the links on the page to not include the absolute path and .md extension. It isn't needed, but it is a quick and easy solution.
+Notice the prototype function ".ucFirst()" that doesn't exist, I created it to be able to make the first letter of a word uppercase:
+
+<pre><code>
+String.prototype.ucFirst = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+</code></pre>
+pretty simple stuff... It is also nice that you can pollute - <em>cough</em> extend - namespaces like this in JavaScript.
+
+The createMenuElements builds the HTML elements for the menu:
+
+<pre><code>
+function createDropDownMenuItem(e, entry) {
+    let label = `${e}DropDown`;
+    let li = createTag(&quot;li&quot;, [&quot;nav-item&quot;, &quot;dropdown&quot;]);
+    let a = createTag(&quot;a&quot;, [&quot;nav-link&quot;, &quot;dropdown-toggle&quot;], e.ucFirst(), { href: &quot;#&quot;, id: label, &quot;role&quot;: &quot;button&quot;, &quot;data-bs-toggle&quot;: &quot;dropdown&quot;, &quot;aria-expanded&quot;: &quot;false&quot; });
+    li.appendChild(a);
+    let ul = createTag(&quot;ul&quot;, [&quot;dropdown-menu&quot;], &quot;&quot;, { &quot;aria-labelledby&quot;: label });
+    entry.forEach(item =&gt; {
+        let ili = createMenuItem(item, &quot;dropdown-item&quot;);
+        ul.appendChild(ili);
+    });
+    li.appendChild(ul);
+    return li;
+}
+
+function createMenuItem(item, style = &quot;nav-item&quot;) {
+    let li = createTag(&quot;li&quot;, [style]);
+    let a = createTag(&quot;a&quot;, [&quot;nav-link&quot;], item.text, { href: item.page });
+    a.innerText = item.text;
+    li.appendChild(a);
+    return li;
+}
+
+function createMenuElements(pagelist) {
+    let menu = document.getElementById(&quot;menu&quot;);
+    menu.innerHTML = &quot;&quot;;
+    for (let e in pagelist) {
+        let entry = pagelist[e];
+        if (e === &quot;main&quot;) {
+            entry.forEach(item =&gt; {
+                let li = createMenuItem(item);
+                menu.appendChild(li);
+            });
+        }
+        else {
+            let li = createDropDownMenuItem(e, entry);
+            menu.appendChild(li);
+        }
+    }
+}
+</code></pre>
+
+You can see the createTag function makes a comeback! And I also divide this functionality into helper functions for readability. The execution takes one of two paths, either it is part of the main menu, or it is part of a sub-menu. We create tags and end up with this HTML structure:
+
+<pre><code>
+&lt;ul id=&quot;menu&quot; class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;/#/Me&quot;&gt;Me&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;/#/Work&quot;&gt;Work&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;/#/Code&quot;&gt;Code&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;/#/Speaking&quot;&gt;Speaking&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;/#/Workshops&quot;&gt;Workshops&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;/#/Contact&quot;&gt;Contact&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item dropdown&quot;&gt;
+        &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; id=&quot;testDropDown&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Test&lt;/a&gt;
+        &lt;ul class=&quot;dropdown-menu&quot; aria-labelledby=&quot;testDropDown&quot;&gt;
+            &lt;li class=&quot;dropdown-item&quot;&gt;
+                &lt;a class=&quot;nav-link&quot; href=&quot;/#/Test&quot;&gt;Test&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+This is all we need for the menu. Next, we need to handle how we know what files we are rendering.
+
+<img src="../images/blog-menu-rendered.png" alt="" />
+
+Let's start with hooking up the onload and pop state events to call the loading of the pages.json file.
+Onload fires every time the page loads, and pop state fires every time the active history changes - that means every time we change the address bar, like page links!
+
+<pre><code>
+function load() {
+    loadMenu(() =&gt; {
+        loadBlog(() =&gt; {
+            handlePage(parsePage(window.location.href));
+        });
+    });
+}
+
+window.addEventListener(&quot;load&quot;, (e) =&gt; {
+    load();
+});
+
+window.addEventListener(&quot;popstate&quot;, (e) =&gt; {
+    load();
+});
+</code></pre>
+
+We call the loadMenu, and I have created one for the blog posts.json also, but we will get back to that in the next post. Then we call handlePage and parsePage with the current address location. The parsePage function parses the anchor address, and finds the address map key, then returns the entry from the address map:
+
+<pre><code>
+function parsePage(address) {
+    let parts = address.split(&quot;#&quot;);
+    if (parts.length &gt; 1) {
+        return addressMap[parts[1]];
+    }
+    return &quot;&quot;;
+}
+</code></pre>
+
+The interesting bit is in the handlePage function:
+
+<pre><code>
+function handlePage(page) {
+    if (page !== &quot;&quot; &amp;&amp; page) {
+        renderPage(page);
+        setBlogDisplay(false);
+    } else {
+        blog.innerHTML = &quot;&quot;;
+        setBlogDisplay(true);
+    }
+}
+</code></pre>
+
+This figures out if we need to render a page, or we need to show the list of blog posts. This means we now have a functional menu system. We just need to figure out how to render pages.
+
+That seems like a good cutoff and segway into the next post - stay tuned for more!
+
+_Written by The WorkingClassHacker_
+</section>
+
+<section id="post-code_writing_a_blog_with_no_libraries_04_the_rendering">
+<h1>Writing this blog without any libraries</h1>
+<h2>#4 - The rendering.</h2>
+_Let's tackle the rendering, how hard can that be, right?_
+
+Yes, my friends the day has come, we will need to do some rendering! Thankfully, I have already decided to offload all the heavy lifting to a library. So I did say to write this without libraries, but this lets me show my point for this whole thing. My point is that we do not need libraries to handle user actions, state management and DOM manipulation. That is what JavaScript is invented to do. It is designed for that very purpose. My point is that we should try to see how far we come without resorting to using thousands of lines of 3rd party code before we need to, or it just makes sense concerning cost, risk, time and resources. It is all a balancing act and is something we should be conscious and aware of when building systems. And now the time has come in this project, that I feel that writing a markdown compiler is not something I want to do at this point when MarkedJS is pretty lean and does the job wonderfully. I also want it to be extensible, but more on why later.
+
+We left off getting a link to the markdown file off the addressMap. That link is delegated to the renderPage function.
+
+<pre><code>
+function renderPage(page) {
+    let url = page.includes(&quot;/posts&quot;) ? `${page}` : `/pages${page}.md`;
+    fetch(url)
+        .then((d) =&gt; d.text())
+        .then((md) =&gt; {
+            pageContent.innerHTML = &quot;&quot;;
+            let pel = createTag(&quot;div&quot;, [&quot;mdPage&quot;],&quot;&quot;)
+            pel.innerHTML = marked.parse(md);
+            pageContent.appendChild(pel);
+        })
+        .catch((e) =&gt; {
+            console.error(e);
+        });
+}
+</code></pre>
+
+So we start by figuring out if we need a page or post, if it is a page, we append the /pages folder to the link.
+
+Next, our trusty friend fetch does the loading of the file. We parse it as plain text and create a container element.
+Then we let MarkedJS render the markdown and voilá we have a rendered page!
+
+<img src="../images/blog-page-rendering.png" alt="" />
+
+Let's add the syntax highlighting to the Marked pipeline with HighlightJS, this is done by adding a hook to the MarkedJS config
+<pre><code>
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    highlight: function (code, lang) {
+        const language = hljs.getLanguage(lang) ? lang : &#x27;plaintext&#x27;;
+        return hljs.highlight(code, { language }).value;
+    },
+    langPrefix: &#x27;hljs language-&#x27;, // highlight.js css expects a top-level &#x27;hljs&#x27; class.
+    pedantic: false,
+    gfm: true,
+    breaks: false,
+    sanitize: false,
+    smartypants: false,
+    xhtml: false
+});
+</code></pre>
+
+The theme is chosen from one of the standard themes on the HighlightJS website, it is added as a linked CSS:
+<pre><code>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;styles/nebula.css&quot; /&gt;
+</code></pre>
+Then I modified it to my liking!
+Now we have fancy colored code on the blog!!
+
+<img src="../images/blog-code-highlighting.png" alt="" />
+
+Next, I want to render images, and I also want to be able to embed youtube videos on this thing.
+So what to do? Well, MarkedJS lets you extend its functionality. You can create custom elements, custom renderers, custom lexers and parsers pretty easily.
+
+Let's build a custom renderer for images. I will use the standard image token for markdown and extend it to be able to add dimensions, CSS classes and add a prefix "yt/" to indicate a youtube video to embed rather than an image. I can do so by creating a custom renderer for images: Now, this method we can hook into the MarkedJS pipeline by registering it:
+<pre><code>
+marked.use({ renderer: { image: imageRenderer } });
+</code></pre>
+
+Again I have created helper functions for readability. You will probably see that a great deal on this blog. I am a firm believer that code should read like prose, and your intentions for writing the code should be clearly stated from the code itself. Such code does not need comments that rarely get updated, the code itself is the documentation. I kinda like that. A great developer friend once told me: "You should write your code the way you would if you knew the next person who has to maintain it is a serial killer and knows where you live." All violence aside, it makes perfect sense. Good developers make their code understandable to others.
+
+The checkYoutubeVideo function is just a regex match to find the "yt/" prefix, if that is there, we know we want to build a youtube iframe, if not, we build a regular image tag.
+
+<pre><code>
+function checkYoutubeVideo(href) {
+    return href.match(/yt\/(\w+)/i);
+}
+</code></pre>
+
+Next we build the correct starting tag:
+<pre><code>
+function buildStartTag(href, m, text) {
+    if (href &amp;&amp; m) {
+        return `&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/${m[1]}&quot; title=&quot;WCH Video&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen`;
+    }
+    else {
+        return `&lt;img src=&quot;${imgRoute}${href}&quot; alt=&quot;${text}&quot;`;
+    }
+}
+</code></pre>
+
+The magic happens in the buildAttributes function. This is where we figure out if we have a size constraint, we use the syntax "640x480", parse that out and set the height and width attributes. Next, we set any other attributes, and we also pick up any CSS classes and build and add them to the "class" attribute:
+
+<pre><code>
+function buildAttributes(title, m) {
+    let html = &quot;&quot;;
+    let tokens = (title &amp;&amp; title.split(/\s+/)) || [];
+    let titleParts = [], classNames = [];
+    tokens.forEach(function (w) {
+        if ((m = w.match(imageSizeToken()))) {
+            return html = `${html} width=&quot;${m[1]}&quot; height=&quot;${m[2]} &quot;`;
+        }
+        if ((m = w.match(imageAttributeToken()))) {
+            if (m[1] === &#x27;class&#x27;)
+                return classNames.push(m[2]);
+            return html = `${html} ${m[1]}=&quot;${m[2]}&quot;`;
+        }
+        if ((m = w.match(/^\.([\w-]+)$/)))
+            return classNames.push(m[1]);
+        if (w)
+            return titleParts.push(w);
+    });
+    html += buildClasses(classNames);
+    html += buildTitle(titleParts);
+    return html;
+}
+function imageSizeToken() {
+    return /^(\d+)x(\d+)$/;
+}
+
+function imageAttributeToken() {
+    return /^(\w+)=([\w-]+)$/;
+}
+
+function buildClasses(classNames) {
+    let output = &quot;&quot;;
+    if (classNames.length) {
+        output += ` class=&quot;${classNames.join(&quot; &quot;)}&quot;`;
+    }
+    return output;
+}
+
+function buildTitle(parts) {
+    let ouput = &quot;&quot;;
+    let title = parts.join(&#x27; &#x27;);
+    if (title) {
+        ouput += `title=&quot;${title}&quot;`;
+    }
+    return ouput;
+}
+</code></pre>
+
+With that out of the way, we simply need to build the correct end tag, and we are golden!
+That is easy enough, we just use the iframe flag:
+
+<pre><code>
+function buildEndTag(iframe) {
+    return iframe ? &quot;&gt;&lt;/iframe &gt; &quot; : &quot; &gt; &quot;;
+}
+</code></pre>
+
+Great we can now embed images and videos by using the following syntax:
+
+<pre><code>
+![](../images/me.jpg &quot;256x256 .rounded-circle .d-block .mx-auto alt=&#x27;me&#x27;&quot;)
+![](yt/x9H4KeH_PUw &quot;800x350  .d-block .mx-auto&quot;)
+</code></pre>
+
+Those will render like this:
+
+<img src="../images/me.jpg" alt="" />
+
+<img src="yt/x9H4KeH_PUw" alt="" />
+
+Next time we will extend MarkedJS to be able to add scripts!
+
+_Written by The WorkingClassHacker_
+</section>
+
+<section id="post-code_writing_a_blog_with_no_libraries_05_in_scripts_we_trust">
+<h1>Writing this blog without any libraries</h1>
+<h2>#5 - In scripts we trust!</h2>
+_Ok, I want to show off graphical demos using JavaScript, let's write a custom extension to MarkedJS..._
+
+
+So I love to program graphics demos and animations. I'm the kinda guy that just loves a good fractal or a couple of sinusoids. So how can I add scripts via markdown?
+Well since MarkedJS is pretty extensible, and well-documented, it should be easy to write a custom lexer, parser and renderer for a script element.
+But before we go and do something stupid, let's stop to think about what we are enabling. Aren't we creating a local file inclusion vulnerability? Yes, we are! Aren't we also enabling a code execution vulnerability? Absolutely! So is this a good idea? Well, that depends, if you are running this on a backend, hell no! Or at least you need to make sure you are sanitizing and controlling the user input thoroughly! But we don't have a backend! Nor do we have any servers, databases, password files, certificates or any other potential data that would pose a risk to our service or its users. So if you do an LFI attack against this blog, you can only include your files, because we are running client-side only! 1 point for no backends...
+
+So we need to decide upon a syntax. I decide that scripts will be defined by two $ signs.
+
+<pre><code>
+</code></pre>
+
+I also want the ability to put the canvas element inside a parent, and I want to be able to set the defer flag to ensure load order.
+So the final syntax will be:
+
+<pre><code>
+</code></pre>
+To get this going, we need to create an extension to MarkedJS that handles this syntax. Extensions to MarkedJS are pretty simple to build. They follow this template:
+
+<pre><code>
+const name = {
+    name: &#x27;name&#x27;,
+    level: &#x27;block|inline&#x27;,
+    start(src) { },
+    tokenizer(src) { },
+    renderer(token) { }
+};
+</code></pre>
+MarkedJS uses a pipeline that is as follows:
+1. You get an input string
+2. The lexer feeds that string to the tokenizer
+3. The tokenizer feeds tokens to the parser
+4. The parser feeds the token into the renderer
+5. The renderer manipulates the DOM to put the HTML elements on the screen
+
+So we need to build that for our script block.
+
+The start method tells the lexer where to find the start of the token:
+
+<pre><code>
+const script = {
+    name: &#x27;script&#x27;,
+    level: &#x27;block&#x27;,
+    start(src) { return src.match(/$[^:\n]/)?.index; },
+</code></pre>
+We just use a simple regex to look for a new line.
+
+Next, we need to get out the token, that is from $ to $, we do that with a custom tokenizer:
+
+<pre><code>
+ tokenizer(src) {
+        const rule = /^(?:\$[^:\n].*\$[^:\n]*(?:\n|$))+/;
+        const match = rule.exec(src);
+        if (match) {
+            return {
+                type: &#x27;script&#x27;,
+                raw: match[0],
+                text: match[0].trim(),
+                tokens: []
+            };
+        }
+    }
+</code></pre>
+We match whatever we find between two $ signs, again regex to the rescue. We create a token named "script" a return it.
+
+Next up is the renderer that should be fun:
+
+<pre><code>
+renderer(token) {
+        let scriptElement = createTag(&quot;script&quot;);
+        let container = createTag(&quot;div&quot;)
+        let options = getOptions(token);
+        let defer = false;
+        if(options.length &gt; 0){
+            options.forEach(o=&gt;{
+                if(o.includes(&quot;parent&quot;)){
+                    createParentElementForScript(options, container);
+                } else if(o.includes(&quot;defer&quot;)){
+                    defer = true;
+                }
+            });
+        }
+        scriptElement.src = getScriptSrc(options);
+        scriptElement.defer = defer;
+        document.body.appendChild(scriptElement);
+        return `&lt;!--- script: ${scriptElement.src} added ---&gt;\n${container.innerHTML}`;
+    }
+</code></pre>
+So again I have split the code up into helper functions. One to parse the options, one to create a parent element if those options are set, and one to get the script source value.
+
+<pre><code>
+function getOptions(token) {
+    let opts = token.text.split(&quot; &quot;);
+    opts.shift();
+    opts.pop();
+    return opts;
+}
+</code></pre>
+
+This just splits the string by spaces, removes the two dollar sign values at the start and end of the array, and returns the remaining values.
+
+<pre><code>
+function createParentElementForScript(opts, container) {
+    let id = opts[1].split(&quot;=&quot;)[1].replace(&#x27;&quot;&#x27;, &quot;&quot;).replace(&#x27;&quot;&#x27;, &quot;&quot;);
+    let parent = createTag(&quot;div&quot;, [&quot;effect&quot;,&quot;arne&quot;]);
+    parent.id = id;
+    container.appendChild(parent);
+    return parent;
+}
+
+</code></pre>
+
+If we need to create a parent container, we use this utility function to create the element. We get the Id value from the right side of the equal sign. and we append it to the outer container. To render the script with the effect inside this, we need to handle that in the script itself, which is beyond the scope of this piece of code. It is only responsible for creating the element and making it available to the script.
+
+Finally, we get the src of the script:
+<pre><code>
+function getScriptSrc(opts) {
+    return opts[0].split(&quot;=&quot;)[1].replace(&#x27;&quot;&#x27;, &quot;&quot;).replace(&#x27;&quot;&#x27;, &quot;&quot;);
+}
+</code></pre>
+This is simply the first option - it is our tokenizer, and we can make the rules!
+
+This should make this work:
+<pre><code>
+</code></pre>
+</section>
+
+<section id="post-code_writing_a_blog_with_no_libraries_06_the_bug!">
+<h1>Writing this blog without any libraries</h1>
+<h2>#6 - The bug!</h2>
+_So you may have spotted it, but if not, let's fix a bug!_
+
+So we have reached the part of this project where we need to finalize the last part, which is the listing of the blog posts.
+I thought that would be easy enough, but as it turns out there were a few problems, but let's go through the development as I did.
+
+As with the pages, we load the posts.json file using the Fetch API:
+
+<pre><code>
+function loadBlog(cb) {
+    fetch(&quot;/posts/posts.json&quot;)
+        .then(r =&gt; r.json())
+        .then(posts =&gt; {
+            mapPosts(posts);
+            cb();
+        })
+        .catch(e =&gt; cb(console.error(e)));
+}
+
+function load() {
+    loadMenu(() =&gt; {
+        loadBlog(() =&gt; {
+            handlePage(parsePage(window.location.href));
+        });
+    });
+}
+</code></pre>
+
+We load the JSON file, map the posts, and call back to the load function to handle any chosen page to view. So far so good.
+
+<pre><code>
+function createPostCardBody(title, parts, dd, slug) {
+    let postCardBody = createTag(&quot;div&quot;, [&quot;card-body&quot;]);
+    let postTitle = createTag(&quot;h5&quot;, [], title);
+    let postBadge = createTag(&quot;span&quot;, [&quot;badge&quot;, &quot;rounded-pill&quot;, &quot;bg-dark&quot;], parts[0].ucFirst());
+    let postDate = createTag(&quot;span&quot;, [&quot;card-date&quot;], `${dd.toLocaleString(&quot;nb-NO&quot;)}`);
+    let postLink = createTag(&quot;a&quot;, [&quot;btn&quot;, &quot;btn-primary&quot;, &quot;float-end&quot;], &quot;Check Out&quot;, { href: `#${slug}` });
+    appendChildren(postCardBody, [postTitle, postBadge, postDate, postLink]);
+    return postCardBody;
+}
+
+function createPostCard(parts, title, dd, slug) {
+    let postCard = createTag(&quot;div&quot;, [&quot;card&quot;]);
+    let postImage = createTag(&quot;img&quot;, [&quot;card-img-top&quot;], &quot;&quot;, { alt: parts[0], src: `/images/${parts[0]}.png` });
+    let postCardBody = createPostCardBody(title, parts, dd, ingress, slug);
+    appendChildren(postCard, [postImage, postCardBody]);
+    return postCard;
+}
+
+function mapPosts(posts) {
+    posts.forEach((postFileName) =&gt; {
+        let postDate = new Date();
+        try {
+            postDate = new Date(Number(postFileName.split(&quot;#&quot;)[1]) * 1000);
+        } catch (e) {
+            console.error(e);
+        }
+        let fileNameParts = getFileNameParts(postFileName);
+        let postLink = getPostLink(fileNameParts, postFileName);
+        let title = getTitle(fileNameParts);
+        let postCard = createPostCard(fileNameParts, title, postDate, postLink);
+        appendChildren(blog, loadedPosts);
+    });
+}
+</code></pre>
+So the convention here is that post filenames have a prefix that corresponds to an illustration, next comes the title, then we get the timestamp.
+Now this works, but it doesn't give me what I want. I want to see some lead text as well as the title and date of the post. We need to read the actual post and pick some of the text to use as the lead text. I decide to use a paragraph marked with _ _ for italic text as the lead section. The only way to get this text is to load each post and pull the text out. That should be easy enough:
+
+<pre><code>
+String.prototype.getIndices = function (char) {
+    let start = -1;
+    let stop = -1;
+    for (let i = 0; i &lt; this.length; i++) {
+        if (this[i] === char &amp;&amp; start &lt; 0) {
+            start = i;
+        } else if (this[i] === char &amp;&amp; start &gt; -1 &amp;&amp; stop &lt; 0) {
+            stop = i;
+            break;
+        }
+    }
+    return { start: start, stop: stop };
+}
+
+function createPostCard(txt, parts, title, dd, slug) {
+    let { start, stop } = txt.getIndices(&quot;_&quot;);
+    let ingress = txt.substring(start + 1, stop);
+    let postCard = createTag(&quot;div&quot;, [&quot;card&quot;]);
+    let postImage = createTag(&quot;img&quot;, [&quot;card-img-top&quot;], &quot;&quot;, { alt: parts[0], src: `/images/${parts[0]}.png` });
+    let postCardBody = createPostCardBody(title, parts, dd, ingress, slug);
+    appendChildren(postCard, [postImage, postCardBody]);
+    return postCard;
+}
+
+function mapPosts(posts) {
+    posts.forEach(postFileName =&gt; {
+        let postDate = new Date();
+        try {
+            postDate = new Date(Number(postFileName.split(&quot;#&quot;)[1]) * 1000);
+        } catch (e) {
+            console.error(e);
+        }
+        let fileNameParts = getFileNameParts(postFileName);
+        let postLink = getPostLink(fileNameParts, postFileName);
+        let title = getTitle(fileNameParts);
+        fetch(postFileName)
+            .then((r) =&gt; r.text())
+            .then(postText =&gt; {
+                let postCard = createPostCard(postText, fileNameParts, title, postDate, postLink);
+                postCard.setAttribute(&quot;data-index&quot;, index);
+                appendChildren(blog, postCard);
+            })
+            .catch(e =&gt; console.error);
+    });
+}
+</code></pre>
+
+First I create a helper method extension to find the first two indices of the _ character. This is used by the createPostcard function to pull out the lead text from the post. Then that text and the rest of the elements are created, and we append the postcard element to the blog. Now this works, but there is a problem here.
+We have a race condition because the calls to fetch resolve asynchronously. So that means that the posts may return out of order, and we will have a messy list of posts.
+Well, you could call it a feature, like a way to ensure dynamic content - very SEO of us... But I call it a bug, and we need to fix it! You may have noticed it if you viewed the blog earlier this week.
+
+The fix is pretty easy, there are many ways to handle this, but I chose to put all the post elements in an array, add a custom attribute with their index, then sort the array on that attribute before appending the posts, this works. We can't just use the index and put it into the array because in Javascript if you insert something into a certain index in an array, it will affect the length of that array. So we need a different way to handle this:
+
+<pre><code>
+function mapPosts(posts) {
+    let loadedPosts = [];
+    posts.forEach((postFileName, index) =&gt; {
+        let postDate = new Date();
+        try {
+            postDate = new Date(Number(postFileName.split(&quot;#&quot;)[1]) * 1000);
+        } catch (e) {
+            console.error(e);
+        }
+        let fileNameParts = getFileNameParts(postFileName);
+        let postLink = getPostLink(fileNameParts, postFileName);
+        let title = getTitle(fileNameParts);
+        fetch(postFileName)
+            .then((r) =&gt; r.text())
+            .then((postText) =&gt; {
+                let postCard = createPostCard(postText, fileNameParts, title, postDate, postLink);
+                postCard.setAttribute(&quot;data-index&quot;, index);
+                loadedPosts.push(postCard);
+                if (loadedPosts.length === posts.length) {
+                    loadedPosts.sort((a, b) =&gt; Number(a.getAttribute(&quot;data-index&quot;)) - Number(b.getAttribute(&quot;data-index&quot;)));
+                    appendChildren(blog, loadedPosts);
+                }
+            })
+            .catch(e =&gt; console.error);
+    });
+}
+</code></pre>
+So we have our array named "loadedPosts" and we only append the elements after we naively have resolved all promises. Now depending on your solution and how you load stuff this may or may not be sufficient. I know my posts are there because I load them from static files, so I can afford to be naive here. But this code is fragile if you have transient errors like one request doesn't resolve, then we will get nothing displayed. For now, I accept this limitation and risk - but we may need to handle this at some point.
+
+Now that we have a way to display posts we need to handle if we are showing a page, a post or a list of posts. To render the post, we reuse our function to render pages, this is why we chose markdown, and we have written that previously, so it should work out of the box:
+<pre><code>
+function renderPage(page) {
+    let url = page.includes(&quot;/posts&quot;) ? `${page}` : `/pages${page}.md`;
+    fetch(url)
+        .then((d) =&gt; d.text())
+        .then((md) =&gt; {
+            pageContent.innerHTML = &quot;&quot;;
+            let pel = createTag(&quot;div&quot;, [&quot;mdPage&quot;],&quot;&quot;)
+            pel.innerHTML = marked.parse(md);
+            pageContent.appendChild(pel);
+        })
+        .catch((e) =&gt; {
+            console.error(e);
+        });
+}
+</code></pre>
+So that is fine, and it works.
+So we need to show the blog post list when we are not viewing a post or a page, and at the same time hide the page container and the other way around when we are viewing a post or a page.
+
+So I came up with this solution:
+<pre><code>
+function setElementDisplay(element, visible) {
+    if (element) {
+        if (visible) {
+            element.classList.remove(&quot;d-none&quot;);
+        } else {
+            element.classList.add(&quot;d-none&quot;);
+        }
+    }
+}
+
+function handlePage(page) {
+    if (page !== &quot;&quot; &amp;&amp; page) {
+        renderPage(page);
+        setElementDisplay(pageContent, true);
+        setElementDisplay(blog, false);
+    } else {
+        blog.innerHTML = &quot;&quot;;
+        setElementDisplay(blog, true);
+        setElementDisplay(pageContent, false);
+    }
+}
+</code></pre>
+So the setElementDisplay toggles the d-none class which comes from bootstrap and sets the display style property to "none" this hides the element.
+Then we set the correct elements to be visible and hidden depending on what we are viewing.
+
+Great! Now we have blog posts!
+
+<img src="../images/blog-post-list.png" alt="" />
+
+And we can render this post:
+<img src="../images/blog-post-rendered.png" alt="" />
+
+This series of how I created this blog without libraries is near its conclusion. I will extend this blog system with more features as time progresses to suit my needs.
+The full source is available on Github:
+
+https://github.com/drcircuit/drcircuit.github.io
+
+You are free to copy, change and mangle the code to suit your own needs. I wrote this as an exercise to see how far you can get without reverting to the big gun front-end libraries. And I was surprised! I have been working with frameworks and libraries for so long, I had forgotten how versatile, expressive and useful JavaScript is. I hope that you too see that you do not need a library like React to build a blog, nor do you need a backend in Node or NextJS, nor do you need any dynamic web features.
+
+In the next and final post, I will show you how I build, deploy and host it!
+
+_Written by The WorkingClassHacker_
+</section>
+
+<section id="post-code_writing_a_blog_with_no_libraries_07_backend">
+<h1>Writing this blog without any libraries</h1>
+<h2>#7 - The backend.</h2>
+_So we landed on not needing to write a backend, but how do we host the thing?!_
+
+Well, we do in fact need some kind of backend if we want to host this blog. We also need a way to write and edit posts, and we need a way to build the JSON files and host the static files on the web.
+
+So how do we do this? Should we build a CMS? _(Content Management System)_
+I did play with that thought for a while, but building a CMS breaks the "no backend" requirement that we landed on earlier. Well, it is not a requirement, more a deferred decision. So I looked into a lot of platform services, but then it hit me. What about Github Pages? Many projects use those to host static content.
+
+Then it also hit me that GIT is a pretty good content management system in itself, and VS Code is a great markdown editor!
+
+So I created a GIT repo, added my project, and now I use VS Code to write posts.
+
+This gives me the following benefits:
+
+<li>Version control of all posts</li>
+<li>Syntax highlighting of markdown posts</li>
+<li>Live preview of markdown</li>
+<li>Debugging feature</li>
+<li>Offline editing!</li>
+<li>Spellchecking, grammar checking++</li>
+<li>Deploy and release pipeline through Github actions</li>
+<li>Hosting, scalability and security through Github pages</li>
+
+So using this has too many benefits to warrant writing a complete CMS to handle publishing pages and posts. It is much easier to fashion a comprehensive tool stack using VS-Code as a platform.
+
+So to offer my take on the age-old debated question to buy vs build:
+I feel you should build what lies close to your core business. In the case of this blog, the core is writing and presenting blog posts, and one of the key parts of this blog is exploring how few dependencies you need. Building that makes sense given that scope. But when it comes to writing the posts, managing the posts or hosting the static web app, well that is easy to defer to a third party, you are also not suffering from lock-in because I can move this blog to a different VCS, hosting platform, and I can just as easily use Atom, Electron, eMacs, VIM or any other IDE or text editor to write posts. I am also platform-independent since GIT runs on all modern platforms. I can even roll my own VCS, build-environment and hosting at my house if I so desire.
+
+It does feel nice to have such a nice toolbox with so little effort put in:
+
+<img src="../images/blog-backend-01.png" alt="" />
+
+I can keep it like this, but I do want to connect it to my domain, why else would you want a domain on the web? So that leaves one little configuration in the DNS, and add the configuration to GitHub pages. I get a sweet SSL certificate for free from this platform, and Bob's your uncle!
+
+<img src="../images/blog-finished.png" alt="" />
+
+So that concludes this series on how I built this site.
+To summarize:
+I chose to rely on libraries to render markdown client-side and to do syntax highlighting of code segments. I chose libraries that were extensible so that I may extend their functionality. Should I for some reason need to change one of these 3rd party dependencies, it is only a small job in a certain portion of the source code, the main bulk of my blog code is still my own and easy to maintain by me.
+
+So what is the next step? Maybe I need to package this up and work it into a framework? Or maybe I am done with this for now and I should move on to more interesting topics - Stay tuned!
+
+Written by The WorkingClassHacker
+</section>
+
+<section id="post-web_getting_text_to_talking_pictures_with_my_AI_friends">
+<h1>Text to talking pictures</h1>
+_Having some fun with my A.I. friends..._
+
+A.I. is turning into a zeitgeist of our time these days - many thanks to the groundbreaking work done by Stable Diffusion and GPT-based algorithms. So I thought I would have some fun and set up a little project using my favorite A.I. friends: Stable Diffusion, ChatGPT, Tecotron 2 and Wav2Lip.
+
+So what are all of these A.I. things? Well, to put it short they are all examples of deep neural networks with different architectures. Neural networks are networks of what are known as perceptrons. A perceptron is a node in a network that receives a summation of weights, adjusts that sum with a bias value, then that result is sent to an activation function which yields an output. That output can go either to another perceptron or to a decoder to give user output. Now that doesn't sound all that amazing, but it models how your brain forms neural pathways when learning new skills.
+
+Think about if you are learning to play an instrument. At first, the instrument feels clunky, and unfamiliar, so you do not sound very good. But you keep doing the same thing over and over again, and gradually over time, you improve. After a lot of iterations, your brain has built direct connections between all the functions in your brain and muscles that are part of that process, and you are suddenly able to play the same piece without any effort, and nearly no level of concentration at all. This is how you learn, and why you never forget how to ride a bike.
+
+</section>
+
+    <footer>
+        <p>Copyright © 2023-2026 by SunnyTownRoad Productions</p>
+    </footer>
+
+</body>
+</html>

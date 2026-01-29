@@ -20,4 +20,7 @@ rm./build.sh
 cd ..
 cd ..
 ls ./static
-
+echo "Packed static site into ./static"
+# Build single-page HTML from markdown files
+./build-single-page.sh
+echo "Built single-page HTML as single-page.html"
