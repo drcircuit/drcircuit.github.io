@@ -1,6 +1,8 @@
 let imgRoute = "/";
 
-function imageRenderer(href, title, text) {
+function imageRenderer(token) {
+    const { href, title, text } = token;
+    
     let html, iframe;
     let youtubeMatch = checkYoutubeVideo(href);
     if (youtubeMatch) {
